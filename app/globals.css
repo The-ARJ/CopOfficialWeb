@@ -2,3 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global Effects */
+@layer components {
+  .hoverEffect {
+    @apply cursor-pointer hover:text-black  hover:bg-gray-200;
+  }
+}
+
+/* Global Styles */
+
+div {
+  box-sizing: border-box;
+  display: block;
+}
+
+body {
+  background-color: #fff !important;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem !important;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(220, 220, 220, 0.9) !important;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #0e7490 !important;
+  border-radius: 10px !important;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}

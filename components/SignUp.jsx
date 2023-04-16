@@ -4,12 +4,9 @@ import { FiMinimize } from "react-icons/fi";
 import styles from "../app/sidebar.module.css";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 
-function LoginBar({ state, setState, toggleSignupBar }) {
+function SignupBar({ state, setState }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggle = () => {
-    toggleSignupBar();
-  };
   return (
     <div
       className={`fixed top-0 bottom-0 p-2 w-full md:w-[400px] lg:w-[400px] overflow-y-auto text-center bg-[#334155] transition-all ease-in-out duration-500 ${
@@ -18,7 +15,7 @@ function LoginBar({ state, setState, toggleSignupBar }) {
     >
       <div className="text-gray-100 text-xl py-4">
         <div className="p-2.5 mt-1 flex justify-between">
-          <h1 className="text-[#fff] text-2xl font-bold">CopOfficial Login</h1>
+          <h1 className="text-[#fff] text-2xl font-bold">CopOfficial SignUp</h1>
           <span onClick={() => setState(!state)}>
             <FiMinimize className="bi hover:scale-75 bi-x cursor-pointer  w-auto h-8" />
           </span>
@@ -26,6 +23,21 @@ function LoginBar({ state, setState, toggleSignupBar }) {
       </div>
       <form className="mx-4 mt-8 ">
         <div className=" mb-8">
+          <div className="mb-4 ">
+            <label
+              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              htmlFor=" Full Name"
+            >
+              Full Name
+            </label>
+            <input
+              className="appearance-none border placeholder:text-sm rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id=" Full Name"
+              type=" Full Name"
+              placeholder="Eg, Aayush Raj Joshi"
+            />
+          </div>
+
           <div className="mb-4 ">
             <label
               className="block text-gray-200 text-lg text-start font-bold mb-2"
@@ -38,6 +50,20 @@ function LoginBar({ state, setState, toggleSignupBar }) {
               id="Email"
               type="text"
               placeholder="example@email.com"
+            />
+          </div>
+          <div className="mb-4 ">
+            <label
+              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              htmlFor=" Full Name"
+            >
+              Phone Number
+            </label>
+            <input
+              className="appearance-none border placeholder:text-sm rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id=" Phone Number"
+              type="Phone Number"
+              placeholder="Eg, 9818984104"
             />
           </div>
           <div className="mb-6">
@@ -54,25 +80,39 @@ function LoginBar({ state, setState, toggleSignupBar }) {
               placeholder="********"
             />
           </div>
+          <div className="mb-6">
+            <label
+              className="block text-gray-200 text-start  text-lg font-bold mb-2"
+              htmlFor="password"
+            >
+              Confirm Password
+            </label>
+            <input
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 placeholder:text-sm leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              placeholder="********"
+            />
+          </div>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex gap-4 items-center justify-between">
+          <a
+            className="inline-block align-baseline text-justify font-bold text-sm text-gray-400 hover:text-white"
+            href="#"
+          >
+            By sign up you agree the terms and conditions.
+          </a>
           <button
             className=" flex gap-2 bg-[#0c66eea6] hover:bg-[#0c66ee] text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline"
             type="button"
           >
-            Login
+            SignUp
             <BiLogInCircle className=" text-2xl" />
           </button>
-          <a
-            className="inline-block align-baseline font-bold text-sm text-gray-400 hover:text-white"
-            href="#"
-          >
-            Forgot Password?
-          </a>
         </div>
       </form>
       <div className="my-8  mx-16">
-        <div className=" mb-2 text-white">Login With</div>
+        <div className=" mb-2 text-white">SignUp With</div>
         <div className="mb-4  bg-white h-[1px]"></div>
 
         <div className="flex justify-center gap-8 items-center mt-4">
@@ -90,17 +130,8 @@ function LoginBar({ state, setState, toggleSignupBar }) {
           </button>
         </div>
       </div>
-      <div className="my-8 mx-4 md:mx-10 flex justify-between">
-        <div className="mb-2 text-white">Don&apos;t Have an Account?</div>
-        <div
-          onClick={toggleSignupBar}
-          className="cursor-pointer mb-2 text-[#14b8a6] font-bold"
-        >
-          Sign Up
-        </div>
-      </div>
     </div>
   );
 }
 
-export default LoginBar;
+export default SignupBar;

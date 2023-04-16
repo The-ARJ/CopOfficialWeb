@@ -11,8 +11,8 @@ import {
   BiPointer,
   BiSearch,
   BiStar,
-  BiX,
 } from "react-icons/bi";
+import { FiMinimize } from "react-icons/fi";
 import styles from "../app/sidebar.module.css";
 
 function Sidebar({ state, setState }) {
@@ -32,7 +32,7 @@ function Sidebar({ state, setState }) {
         <div className="p-2.5 mt-1 flex items-center">
           <h1 className=" text-[#fff] text-2xl font-bold">CopOfficial</h1>
           <span onClick={() => setState(!state)}>
-            <BiX className="bi bi-x cursor-pointer ml-24 lg:hidden w-auto h-8" />
+            <FiMinimize className="bi bi-x cursor-pointer ml-24 lg:hidden w-auto h-8" />
           </span>
         </div>
       </div>

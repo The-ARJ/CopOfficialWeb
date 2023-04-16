@@ -4,16 +4,28 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import Loginbar from "./Login";
 import { BsLayoutSidebarInset } from "react-icons/bs";
+import SignupBar from "./SignUp";
 
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
   const [isLoginBar, setIsLoginBar] = useState(false);
+  const [isSignupBar, setIsSignupBar] = useState(false);
 
   const toggleMenu = () => {
     setIsMenu(!isMenu);
+    setIsSignupBar(false);
+    setIsLoginBar(false);
   };
   const toggleLoginBar = () => {
     setIsLoginBar(!isLoginBar);
+    setIsSignupBar(false);
+    setIsMenu(false);
+  };
+
+  const toggleSignupBar = () => {
+    setIsSignupBar(!isSignupBar);
+    setIsLoginBar(false);
+    setIsMenu(false);
   };
 
   return (
@@ -35,11 +47,15 @@ const Navbar = () => {
                 Login
               </button>
             </div>
-            <Loginbar state={isLoginBar} setState={setIsLoginBar} />
+            <Loginbar toggleSignupBar={toggleSignupBar} state={isLoginBar} setState={setIsLoginBar} />
 
-            <button className=" hidden sm:block text-white rounded-full font-medium text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 bg-[#0c66eea6] hover:bg-[#0c66ee]">
+            <button
+              onClick={toggleSignupBar}
+              className=" hidden sm:block text-white rounded-full font-medium text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 bg-[#0c66eea6] hover:bg-[#0c66ee]"
+            >
               Sign Up
             </button>
+            <SignupBar state={isSignupBar} setState={setIsSignupBar} />
 
             <div className="  ">
               {!isMenu && (
