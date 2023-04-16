@@ -90,7 +90,7 @@ const About = () => {
             </ul>
           </div>
           <Image
-            className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+            className=" w-full mb-4 rounded-lg lg:mb-0 lg:flex"
             src="/assets/police3.png"
             alt="dashboard feature image"
             width={400}

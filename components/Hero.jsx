@@ -23,7 +23,7 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+        <div className=" lg:mt-0 lg:col-span-5 lg:flex">
           <Image
             src="/assets/police.png"
             alt="copofficial"
