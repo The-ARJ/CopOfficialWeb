@@ -5,8 +5,6 @@ import styles from "../app/sidebar.module.css";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 
 function SignupBar({ state, setState }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
     <div
       className={`fixed top-0 bottom-0 p-2 w-full md:w-[400px] lg:w-[400px] overflow-y-auto text-center bg-[#334155] transition-all ease-in-out duration-500 ${
