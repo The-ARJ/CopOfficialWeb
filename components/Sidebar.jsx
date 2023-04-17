@@ -25,8 +25,7 @@ function Sidebar({ state, setState }) {
   return (
     <div
       className={`${"fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] lg:hidden overflow-y-auto text-center bg-[#334155] transition-all ease-in-out duration-500"} ${
-        styles.sidebar
-      } ${state ? "left-0" : "-left-full"}`}
+        styles.sidebar} ${state ? "left-0" : "-left-full"}`}
     >
       <div className="text-gray-100 text-xl py-4">
         <div className="p-2.5 mt-1 flex items-center">

@@ -2,7 +2,7 @@ import React from "react";
 
 const Services = () => {
   return (
-    <section id="services" className="bg-white dark:bg-gray-900">
+    <section id="services" className="bg-white dark:bg-[#000236]">
       <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
         <div className="col-span-2 mb-8">
           <p className="text-lg font-medium text-purple-600 dark:text-purple-500">

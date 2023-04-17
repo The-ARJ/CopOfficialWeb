@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed w-full">
-      <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 py-2.5 dark:bg-[#000236]">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
           <Link href="/" className="flex items-center">
             {/* <img src="./images/logo.svg" className="h-6 mr-3 sm:h-9" alt="CopOfficial Logo" /> */}

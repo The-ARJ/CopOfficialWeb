@@ -3,8 +3,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <section       id="about"
-    className="bg-gray-50 dark:bg-gray-800">
+    <section id="about" className="bg-gray-50 dark:bg-[#353960]">
       <div className="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-2 lg:py-14 lg:px-6">
         {/* Row */}
         <h2 className=" text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">
@@ -215,7 +214,6 @@ const About = () => {
                 </span>
               </li>
             </ul>
-        
           </div>
         </div>
       </div>
