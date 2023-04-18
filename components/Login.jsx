@@ -7,7 +7,7 @@ import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 function LoginBar({ state, setState, toggleSignupBar }) {
   return (
     <div
-      className={`fixed top-0 bottom-0 p-2 w-full md:w-[400px] lg:w-[400px] overflow-y-auto text-center bg-[#334155] transition-all ease-in-out duration-500 ${
+      className={`fixed top-0 bottom-0 p-2 w-full md:w-[400px] lg:w-[400px] overflow-y-auto text-center bg-[#2d2f5a] transition-all ease-in-out duration-500 ${
         styles.sidebar
       } ${state ? "lg:left-0 left-0" : "-left-full"}`}
     >
