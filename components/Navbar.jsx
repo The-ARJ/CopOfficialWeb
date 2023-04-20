@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Loginbar from "./Login";
 import { BsLayoutSidebarInset } from "react-icons/bs";
@@ -38,11 +38,11 @@ const Navbar = () => {
 
   return (
     <header className="fixed w-full">
-      <nav className="bg-white border-gray-200 py-2.5 dark:bg-[#000236]">
-        <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+      <nav className=" border-gray-200 bg-[#000236] py-2.5">
+        <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between px-4">
           <Link href="/" className="flex items-center">
             {/* <img src="./images/logo.svg" className="h-6 mr-3 sm:h-9" alt="CopOfficial Logo" /> */}
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
               CopOfficial
             </span>
           </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className=" relative ">
               <button
                 onClick={toggleLoginBar}
-                className="text-white rounded-full font-medium  text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 border border-[#0c66eea6] hover:border-[#0c66ee]"
+                className="rounded-full border border-[#0c66eea6]  px-4 py-2 text-sm font-medium text-white hover:border-[#0c66ee] sm:mr-2 lg:mr-0 lg:px-5 lg:py-2.5"
               >
                 Login
               </button>
@@ -63,31 +63,34 @@ const Navbar = () => {
 
             <button
               onClick={toggleSignupBar}
-              className=" hidden sm:block text-white rounded-full font-medium text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 bg-[#0c66eea6] hover:bg-[#0c66ee]"
+              className=" hidden rounded-full bg-[#0c66eea6] px-4 py-2 text-sm font-medium text-white hover:bg-[#0c66ee] sm:mr-2 sm:block lg:mr-0 lg:px-5 lg:py-2.5"
             >
               Sign Up
             </button>
             <SignupBar state={isSignupBar} setState={setIsSignupBar} />
-
             <div className="  ">
               {!isMenu && (
                 <BsLayoutSidebarInset
                   onClick={toggleMenu}
-                  className=" h-8 w-8 lg:hidden text-[#cbd5e1]"
+                  className=" h-8 w-8 text-[#cbd5e1] lg:hidden"
                 />
               )}
-              <Sidebar state={isMenu} setState={setIsMenu} />
+              <Sidebar
+                toggleContactBar={toggleContactBar}
+                state={isMenu}
+                setState={setIsMenu}
+              />
             </div>
           </div>
           <div
-            className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
+            className="hidden w-full items-center justify-between lg:order-1 lg:flex lg:w-auto"
             id="mobile-menu-2"
           >
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+            <ul className="mt-4 flex flex-col font-medium text-white lg:mt-0 lg:flex-row lg:space-x-8">
               <li>
                 <Link
                   href="/"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:text-purple-700 text-gray-400 hover:bg-gray-700 border-gray-700 block border-b py-2 pl-3 pr-4 hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-white"
                 >
                   Home
                 </Link>
@@ -95,7 +98,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="#about"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:text-purple-700 text-gray-400 hover:bg-gray-700 border-gray-700 block border-b py-2 pl-3 pr-4 hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-white"
                 >
                   About
                 </Link>
@@ -103,7 +106,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="#services"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:text-purple-700 text-gray-400 hover:bg-gray-700 border-gray-700 block border-b py-2 pl-3 pr-4 hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-white"
                 >
                   Services
                 </Link>
@@ -111,15 +114,14 @@ const Navbar = () => {
               <li>
                 <div
                   onClick={toggleContactBar}
-                  className="block py-2 pl-3 cursor-pointer pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className=" text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:text-purple-700 text-gray-400 hover:bg-gray-700 border-gray-700 block cursor-pointer border-b py-2 pl-3 pr-4 hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:hover:text-white"
                 >
                   Contact
                 </div>
-                <ContactBar state={isContactBar} setState={setIsContactBar} />
-
               </li>
             </ul>
           </div>
+          <ContactBar state={isContactBar} setState={setIsContactBar} />
         </div>
       </nav>
     </header>

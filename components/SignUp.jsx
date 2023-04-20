@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { BiLogInCircle, BiX } from "react-icons/bi";
 import { FiMinimize } from "react-icons/fi";
 import styles from "../app/sidebar.module.css";
-import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 
 function SignupBar({ state, setState }) {
   return (
@@ -15,7 +13,7 @@ function SignupBar({ state, setState }) {
         <div className="p-2.5 mt-1 flex justify-between">
           <h1 className="text-[#fff] text-2xl font-bold">CopOfficial SignUp</h1>
           <span onClick={() => setState(!state)}>
-            <FiMinimize className="bi hover:scale-75 bi-x cursor-pointer  w-auto h-8" />
+            <FiMinimize className="bi hover:scale-75 text-gray bi-x cursor-pointer  w-auto h-8" />
           </span>
         </div>
       </div>
@@ -23,7 +21,7 @@ function SignupBar({ state, setState }) {
         <div className=" mb-8">
           <div className="mb-4 ">
             <label
-              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start font-bold mb-2"
               htmlFor=" Full Name"
             >
               Full Name
@@ -38,7 +36,7 @@ function SignupBar({ state, setState }) {
 
           <div className="mb-4 ">
             <label
-              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start font-bold mb-2"
               htmlFor="Email"
             >
               Email
@@ -52,7 +50,7 @@ function SignupBar({ state, setState }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start font-bold mb-2"
               htmlFor=" Full Name"
             >
               Phone Number
@@ -66,7 +64,7 @@ function SignupBar({ state, setState }) {
           </div>
           <div className="mb-6">
             <label
-              className="block text-gray-200 text-start  text-lg font-bold mb-2"
+              className="block text-gray text-start  text-lg font-bold mb-2"
               htmlFor="password"
             >
               Password
@@ -80,7 +78,7 @@ function SignupBar({ state, setState }) {
           </div>
           <div className="mb-6">
             <label
-              className="block text-gray-200 text-start  text-lg font-bold mb-2"
+              className="block text-gray text-start  text-lg font-bold mb-2"
               htmlFor="password"
             >
               Confirm Password
@@ -95,7 +93,7 @@ function SignupBar({ state, setState }) {
         </div>
         <div className="flex gap-4 items-center justify-between">
           <a
-            className="inline-block align-baseline text-justify font-bold text-sm text-gray-400 hover:text-white"
+            className="inline-block align-baseline text-justify font-bold text-sm text-gray hover:text-white"
             href="#"
           >
             By sign up you agree the terms and conditions.
@@ -113,7 +111,7 @@ function SignupBar({ state, setState }) {
         <div className=" mb-2 text-white">or</div>
         <div className="mb-4  bg-white h-[1px]"></div>
 
-        <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray-200 p-4 hover:bg-white   ">
+        <button className="bg-gray-200 flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke p-4 text-gray hover:bg-white hover:text-black  ">
           <span>
             <svg
               width="20"

@@ -2,27 +2,27 @@ import React from "react";
 
 const Services = () => {
   return (
-    <section id="services" className="bg-white dark:bg-[#000236]">
+    <section id="services" className="bg-[#000236]">
       <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
         <div className="col-span-2 mb-8">
-          <p className="text-lg font-medium text-purple-600 dark:text-purple-500">
+          <p className="text-2xl font-bold text-purple-600 text-[#a855f7]">
             Our Services{" "}
           </p>
-          <h2 className="mt-3 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-3xl dark:text-white">
+          <h2 className="mt-6 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-3xl text-white">
             Simplifying Crime Reporting and Community Safety{" "}
           </h2>
-          <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+          <p className="font-light text-[#94a3b8]  sm:text-xl ">
             At CopOfficial, we understand the importance of timely and accurate
             crime reporting to ensure the safety and security of our community.
             Our platform offers a range of services that enable community
             members to report crimes, file FIRs, and seek protection in
             emergency situations.
           </p>
-          <div className="pt-6 mt-6 space-y-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="pt-6 mt-6 space-y-4 border-t border-gray-200 border-gray-700">
             <div>
               <a
                 href="#"
-                className="inline-flex items-center text-base font-medium text-purple-600 hover:text-purple-800 dark:text-purple-500 dark:hover:text-purple-700"
+                className="inline-flex items-center text-base font-medium text-purple-600 hover:text-purple-800 text-[#a855f7] hover:text-purple-700"
               >
                 Explore Legality Guide
                 <svg
@@ -42,7 +42,7 @@ const Services = () => {
             <div>
               <a
                 href="#"
-                className="inline-flex items-center text-base font-medium text-purple-600 hover:text-purple-800 dark:text-purple-500 dark:hover:text-purple-700"
+                className="inline-flex items-center text-base font-medium text-purple-600 hover:text-purple-800 text-[#a855f7] hover:text-purple-700"
               >
                 Visit the Trust Center
                 <svg
@@ -65,7 +65,7 @@ const Services = () => {
           <div>
           <div className=" flex gap-2">
           <svg
-              className="w-10 h-10 mb-2 text-purple-600 md:w-12 md:h-12 dark:text-purple-500"
+              className="w-10 h-10 mb-2 text-purple-600 md:w-12 md:h-12 text-[#a855f7]"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -76,11 +76,11 @@ const Services = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <h3 className="mb-2 text-2xl font-bold dark:text-white">
+            <h3 className="mb-2 text-2xl font-bold text-white">
               Complain
             </h3>
           </div>
-            <p className="font-light text-gray-500 dark:text-gray-400">
+            <p className="font-light text-[#94a3b8]">
               Our complain service allows community members to report
               non-emergency complaints related to public safety and law
               enforcement, such as noise complaints or traffic violations.
@@ -89,18 +89,18 @@ const Services = () => {
           <div>
          <div className=" flex gap-2">
          <svg
-              className="w-10 h-10 mb-2 text-purple-600 md:w-12 md:h-12 dark:text-purple-500"
+              className="w-10 h-10 mb-2 text-purple-600 md:w-12 md:h-12 text-[#a855f7]"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
             </svg>
-            <h3 className="mb-2 text-2xl font-bold dark:text-white">
+            <h3 className="mb-2 text-2xl font-bold text-white">
               Crime Reporting{" "}
             </h3>
          </div>
-            <p className="font-light text-gray-500 dark:text-gray-400">
+            <p className="font-light text-[#94a3b8]">
               It enables community members to report crimes online, providing
               law enforcement agencies with crucial information to help solve
               crimes and apprehend suspects.
@@ -109,7 +109,7 @@ const Services = () => {
           <div>
           <div className=" flex gap-2">
           <svg
-              className="w-10 h-10 mb-2 text-purple-600 md:w-12 md:h-12 dark:text-purple-500"
+              className="w-10 h-10 mb-2 text-purple-600 md:w-12 md:h-12 text-[#a855f7]"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -120,9 +120,9 @@ const Services = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <h3 className="mb-2 text-2xl font-bold dark:text-white">FIR</h3>
+            <h3 className="mb-2 text-2xl font-bold text-white">FIR</h3>
           </div>
-            <p className="font-light text-gray-500 dark:text-gray-400">
+            <p className="font-light text-[#94a3b8]">
               It allows members to file First Information Reports (FIRs) online,
               simplifying the process. This service is designed to be reliable
               and secure, ensuring that all information is kept confidential and
@@ -132,18 +132,18 @@ const Services = () => {
           <div>
           <div className=" flex gap-2">
           <svg
-              className="w-10 h-10 mb-2 text-purple-600 md:w-12 md:h-12 dark:text-purple-500"
+              className="w-10 h-10 mb-2 text-purple-600 md:w-12 md:h-12 text-[#a855f7]"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
             </svg>
-            <h3 className="mb-2 text-2xl font-bold dark:text-white">
+            <h3 className="mb-2 text-2xl font-bold text-white">
               Protect Me{" "}
             </h3>
           </div>
-            <p className="font-light text-gray-500 dark:text-gray-400">
+            <p className="font-light text-[#94a3b8]">
               This service can help law enforcement agencies locate and rescue
               community members in distress, providing a quick and effective
               response to emergency situations.

@@ -3,26 +3,26 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-white dark:bg-[#353960]">
+      <footer className="bg-[#353960]">
         <div className="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
           <div className="text-center">
             <a
               href="#"
-              className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
+              className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 text-white"
             >
               CopOfficial
             </a>
-            <span className="block text-sm text-center text-gray-500 dark:text-gray-400">
+            <span className="block text-sm text-center text-gray-500 text-gray">
               © 2023 CopOfficial. All Rights Reserved.
             </span>
             <ul className="flex justify-center mt-5 space-x-5">
               <li>
                 <a
                   href="#"
-                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                  className="text-gray-500 text-[#a855f7] hover:text-white text-gray-400"
                 >
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -38,10 +38,10 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                  className="text-gray-500 text-[#a855f7] hover:text-white text-gray-400"
                 >
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -57,10 +57,10 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                  className="text-gray-500 text-[#a855f7] hover:text-white text-gray-400"
                 >
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -72,10 +72,10 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                  className="text-gray-500 text-[#a855f7] hover:text-white text-gray-400"
                 >
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -91,10 +91,10 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                  className="text-gray-500 text-[#a855f7] hover:text-white text-gray-400"
                 >
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"

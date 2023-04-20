@@ -4,7 +4,7 @@ import { FiMinimize } from "react-icons/fi";
 import styles from "../app/sidebar.module.css";
 import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
 
-function ContactBar({ state, setState, toggleSignupBar }) {
+function ContactBar({ state, setState }) {
   return (
     <div
       className={`fixed top-0 bottom-0 p-2 w-full md:w-[400px] lg:w-[400px] overflow-y-auto text-center bg-[#2d2f5a] transition-all ease-in-out duration-500 ${
@@ -15,7 +15,7 @@ function ContactBar({ state, setState, toggleSignupBar }) {
         <div className="p-2.5 mt-1 flex justify-between">
           <h1 className="text-[#fff] text-2xl font-bold">Contact Us</h1>
           <span onClick={() => setState(!state)}>
-            <FiMinimize className="bi hover:scale-75 bi-x cursor-pointer  w-auto h-8" />
+            <FiMinimize className="bi hover:scale-75 bi-x text-gray cursor-pointer  w-auto h-8" />
           </span>
         </div>
       </div>
@@ -23,7 +23,7 @@ function ContactBar({ state, setState, toggleSignupBar }) {
         <div className=" mb-8">
           <div className="mb-4 ">
             <label
-              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start font-bold mb-2"
               htmlFor="Email"
             >
               Full Name
@@ -37,7 +37,7 @@ function ContactBar({ state, setState, toggleSignupBar }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start font-bold mb-2"
               htmlFor="Email"
             >
               Phone Number
@@ -51,7 +51,7 @@ function ContactBar({ state, setState, toggleSignupBar }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start font-bold mb-2"
               htmlFor="Email"
             >
               Email
@@ -65,7 +65,7 @@ function ContactBar({ state, setState, toggleSignupBar }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start font-bold mb-2"
               htmlFor="Subject"
             >
               Subject
@@ -79,7 +79,7 @@ function ContactBar({ state, setState, toggleSignupBar }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray-200 text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start font-bold mb-2"
               htmlFor="Messagage"
             >
               Message

@@ -3,18 +3,18 @@ import React from "react";
 
 const About = () => {
   return (
-    <section id="about" className="bg-gray-50 dark:bg-[#353960]">
+    <section id="about" className=" bg-[#353960]">
       <div className="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-2 lg:py-14 lg:px-6">
         {/* Row */}
-        <h2 className=" text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        <h2 className=" text-2xl font-extrabold tracking-tight text-gray-900 text-white">
           About Us{" "}
         </h2>
         <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-          <div className="text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          <div className="text-gray-500 sm:text-lg text-gray-400">
+            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 text-white">
               Building a Safer and Stronger Community
             </h2>
-            <p className="mb-8 font-light lg:text-xl">
+            <p className="mb-8 text-[#94a3b8] font-light lg:text-xl">
               CopOfficial is a modern online platform designed to improve
               communication and collaboration between the community and law
               enforcement agencies. Our website provides a secure and accessible
@@ -27,12 +27,12 @@ const About = () => {
             {/* List */}
             <ul
               role="list"
-              className="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+              className="pt-8 space-y-5 border-t my-7 border-[#818cf8]"
             >
               <li className="flex space-x-3">
                 {/* Icon */}
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
+                  className="flex-shrink-0 w-5 h-5 text-[#a855f7] text-purple-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ const About = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                <span className="text-base font-medium leading-tight text-gray-900 text-white">
                   Our platform is built on the values of transparency,
                   accountability, and collaboration.
                 </span>
@@ -51,7 +51,7 @@ const About = () => {
               <li className="flex space-x-3">
                 {/* Icon */}
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
+                  className="flex-shrink-0 w-5 h-5 text-[#a855f7] text-purple-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ const About = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                <span className="text-base font-medium leading-tight text-gray-900 text-white">
                   Our team consists of experienced professionals in the fields
                   of law enforcement, technology, and community outreach.
                 </span>
@@ -70,7 +70,7 @@ const About = () => {
               <li className="flex space-x-3">
                 {/* Icon */}
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
+                  className="flex-shrink-0 w-5 h-5 text-[#a855f7] text-purple-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const About = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                <span className="text-base font-medium leading-tight text-gray-900 text-white">
                   We continuously improve our platform and services to meet the
                   evolving needs of our community.
                 </span>
@@ -105,11 +105,11 @@ const About = () => {
             width={400}
             height={400}
           />
-          <div className="text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          <div className="text-gray-500 sm:text-lg text-gray-400">
+            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 text-white">
               Empowering Communities through Technology and Collaboration
             </h2>
-            <p className="mb-8 font-light lg:text-xl">
+            <p className="mb-8 text-[#94a3b8] font-light lg:text-xl">
               At CopOfficial, we are committed to continuously improving our
               platform and services to meet the evolving needs of our community.
               We welcome feedback and suggestions from our users, and we are
@@ -119,12 +119,12 @@ const About = () => {
             {/* List */}
             <ul
               role="list"
-              className="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700"
+              className="pt-8 space-y-5 border-t  my-7 border-[#818cf8]"
             >
               <li className="flex space-x-3">
                 {/* Icon */}
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
+                  className="flex-shrink-0 w-5 h-5 text-[#a855f7]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -135,14 +135,14 @@ const About = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                <span className="text-base font-medium leading-tight text-gray-900 text-white">
                   Continuous improvement to meet evolving community needs.
                 </span>
               </li>
               <li className="flex space-x-3">
                 {/* Icon */}
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
+                  className="flex-shrink-0 w-5 h-5 text-[#a855f7]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -153,14 +153,14 @@ const About = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                <span className="text-base font-medium leading-tight text-gray-900 text-white">
                   Valuing feedback and suggestions from users.
                 </span>
               </li>
               <li className="flex space-x-3">
                 {/* Icon */}
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
+                  className="flex-shrink-0 w-5 h-5 text-[#a855f7]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ const About = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                <span className="text-base font-medium leading-tight text-gray-900 text-white">
                   Enhancing partnership with law enforcement agencies for
                   positive impact.
                 </span>
@@ -179,7 +179,7 @@ const About = () => {
               <li className="flex space-x-3">
                 {/* Icon */}
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
+                  className="flex-shrink-0 w-5 h-5 text-[#a855f7]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -190,14 +190,14 @@ const About = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                <span className="text-base font-medium leading-tight text-gray-900 text-white">
                   User-friendly and reliable platform with privacy and security.
                 </span>
               </li>
               <li className="flex space-x-3">
                 {/* Icon */}
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
+                  className="flex-shrink-0 w-5 h-5 text-[#a855f7]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +208,7 @@ const About = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                <span className="text-base font-medium leading-tight text-gray-900 text-white">
                   Transparency, accountability, and collaboration as core
                   values.
                 </span>
