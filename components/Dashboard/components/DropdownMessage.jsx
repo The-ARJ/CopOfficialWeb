@@ -5,6 +5,7 @@ import UserTwo from '../../../public/images/user/user-02.png'
 import UserThree from '../../../public/images/user/user-03.png'
 import UserFour from '../../../public/images/user/user-04.png'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const DropdownMessage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -96,7 +97,7 @@ const DropdownMessage = () => {
               href='/messages'
             >
               <div className='h-12.5 w-12.5 rounded-full'>
-                <img src={UserTwo} alt='User' />
+                <Image src={UserTwo} alt='User' />
               </div>
 
               <div>
@@ -114,7 +115,7 @@ const DropdownMessage = () => {
               href='/messages'
             >
               <div className='h-12.5 w-12.5 rounded-full'>
-                <img src={UserOne} alt='User' />
+                <Image src={UserOne} alt='User' />
               </div>
 
               <div>
@@ -132,7 +133,7 @@ const DropdownMessage = () => {
               href='/messages'
             >
               <div className='h-12.5 w-12.5 rounded-full'>
-                <img src={UserThree} alt='User' />
+                <Image src={UserThree} alt='User' />
               </div>
 
               <div>
@@ -150,7 +151,7 @@ const DropdownMessage = () => {
               href='/messages'
             >
               <div className='h-12.5 w-12.5 rounded-full'>
-                <img src={UserFour} alt='User' />
+                <Image src={UserFour} alt='User' />
               </div>
 
               <div>
@@ -168,7 +169,7 @@ const DropdownMessage = () => {
               href='/messages'
             >
               <div className='h-12.5 w-12.5 rounded-full'>
-                <img src={UserTwo} alt='User' />
+                <Image src={UserTwo} alt='User' />
               </div>
 
               <div>

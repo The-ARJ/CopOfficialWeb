@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import SidebarLinkGroup from "./SidebarLinkGroup";
 import Link from "next/link";
+import styles from "../../../app/sidebar.module.css";
 import { usePathname } from "next/navigation";
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const pathname = usePathname();
@@ -87,7 +88,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       </div>
       {/* <!-- SIDEBAR HEADER --> */}
 
-      <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+      <div className={`no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear ${styles.sidebar}`}>
         {/* <!-- Sidebar Menu --> */}
         <nav className="mt-5 px-4 py-4 lg:mt-9 lg:px-6">
           {/* <!-- Menu Group --> */}
