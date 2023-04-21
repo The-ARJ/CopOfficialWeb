@@ -1,7 +1,12 @@
-import React from "react";
-import { BsFillChatDotsFill } from "react-icons/bs";
+import React, { useState } from "react";
+import { BsChatDots } from "react-icons/bs";
 import { FcFeedback } from "react-icons/fc";
+import ChatBar from "./Chat";
 const CardFour = () => {
+  const [isLoginBar, setIsLoginBar] = useState(false);
+  const toggleLoginBar = () => {
+    setIsLoginBar(!isLoginBar);
+  };
   return (
     <div className="rounded-3xl  border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
@@ -20,10 +25,11 @@ const CardFour = () => {
             </span>
           </p>
         </div>
-        <div className=" cursor-pointer text-3xl ">
-          <BsFillChatDotsFill />
+        <div onClick={toggleLoginBar} className=" cursor-pointer text-3xl ">
+          <BsChatDots />
         </div>
       </div>
+      <ChatBar state={isLoginBar} setState={setIsLoginBar} />
     </div>
   );
 };

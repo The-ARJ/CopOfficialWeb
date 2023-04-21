@@ -16,9 +16,6 @@ div {
   display: block;
 }
 
-body {
-  background-color: #fff !important;
-}
 
 body::-webkit-scrollbar {
   width: 0.25rem !important;
@@ -34,7 +31,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 * {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
 
 *,
@@ -42,4 +39,5 @@ body::-webkit-scrollbar-thumb {
 ::before {
   box-sizing: border-box;
 }
+
 

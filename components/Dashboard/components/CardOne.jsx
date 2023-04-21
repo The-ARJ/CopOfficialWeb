@@ -1,5 +1,5 @@
 import React from "react";
-import { IoIosCreate } from "react-icons/io";
+import { IoCreateOutline } from "react-icons/io5";
 import { FcFeedback } from "react-icons/fc";
 
 const CardOne = () => {
@@ -22,7 +22,7 @@ const CardOne = () => {
           </p>
         </div>
         <div className=" cursor-pointer text-3xl ">
-          <IoIosCreate />
+          <IoCreateOutline />
         </div>
       </div>
     </div>

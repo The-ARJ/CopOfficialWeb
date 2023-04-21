@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoIosCreate } from "react-icons/io";
+import { TfiWrite } from "react-icons/tfi";
 import { FcFeedback } from "react-icons/fc";
 
 const CardTwo = () => {
@@ -22,7 +22,7 @@ const CardTwo = () => {
         </p>
       </div>
       <div className=" cursor-pointer text-3xl ">
-        <IoIosCreate />
+        <TfiWrite />
       </div>
     </div>
   </div>

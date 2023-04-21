@@ -1,5 +1,5 @@
 import React from "react";
-import { IoIosCreate } from "react-icons/io";
+import { BsPersonVideo } from "react-icons/bs";
 import { FcFeedback } from "react-icons/fc";
 
 const CardThree = () => {
@@ -22,7 +22,7 @@ const CardThree = () => {
           </p>
         </div>
         <div className=" cursor-pointer text-3xl ">
-          <IoIosCreate />
+          <BsPersonVideo />
         </div>
       </div>
     </div>
