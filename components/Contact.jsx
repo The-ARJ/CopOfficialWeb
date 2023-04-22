@@ -23,7 +23,7 @@ function ContactBar({ state, setState }) {
         <div className=" mb-8">
           <div className="mb-4 ">
             <label
-              className="block text-gray text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start  mb-2"
               htmlFor="Email"
             >
               Full Name
@@ -37,7 +37,7 @@ function ContactBar({ state, setState }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start  mb-2"
               htmlFor="Email"
             >
               Phone Number
@@ -51,7 +51,7 @@ function ContactBar({ state, setState }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start  mb-2"
               htmlFor="Email"
             >
               Email
@@ -65,7 +65,7 @@ function ContactBar({ state, setState }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start  mb-2"
               htmlFor="Subject"
             >
               Subject
@@ -79,7 +79,7 @@ function ContactBar({ state, setState }) {
           </div>
           <div className="mb-4 ">
             <label
-              className="block text-gray text-lg text-start font-bold mb-2"
+              className="block text-gray text-lg text-start  mb-2"
               htmlFor="Messagage"
             >
               Message
@@ -95,7 +95,7 @@ function ContactBar({ state, setState }) {
         </div>
         <div className="flex items-center justify-end">
           <button
-            className=" flex gap-2 bg-[#0c66eea6] hover:bg-[#0c66ee] text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline"
+            className=" flex gap-2 bg-[#0c66eea6] hover:bg-[#0c66ee] text-white  py-2 px-6 rounded-full focus:outline-none focus:shadow-outline"
             type="button"
           >
             Submit

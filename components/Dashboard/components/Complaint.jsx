@@ -35,7 +35,7 @@ const Complaint = () => {
                 <div className=" pb-2">Incident Details</div>
                 <div className="mb-4.5">
                   <label className="mb-2.5 block text-black dark:text-white">
-                    Date and Time 
+                    Date and Time
                   </label>
                   <input
                     placeholder="Date and Time - if known"
@@ -47,7 +47,8 @@ const Complaint = () => {
                     Location <span className="text-meta-1">*</span>
                   </label>
                   <input
-                    type="text" required
+                    type="text"
+                    required
                     placeholder="location where incident happened"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   />
@@ -90,7 +91,8 @@ const Complaint = () => {
                     Description <span className="text-meta-1">*</span>
                   </label>
                   <textarea
-                    rows="6" required
+                    rows="6"
+                    required
                     placeholder="Describe the incident"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   ></textarea>
@@ -116,7 +118,18 @@ const Complaint = () => {
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   />
                 </div>
-                <div className=" pb-4 uppercase text-center ">
+                <div className=" pb-2">Supporting Documents - if have</div>
+                <div className="mb-4.5">
+                  <label className="mb-2.5 block text-black dark:text-white">
+                  Any relevant documents, photos, or videos that support the complaint.
+                  </label>
+                  <input
+                    placeholder="eg; Ram"
+                    type="file"
+                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                  />
+                </div>
+                <div className=" pb-4 text-center uppercase ">
                   your complaint will remain safe with us
                 </div>
                 {/* <div className="mb-6 ">
