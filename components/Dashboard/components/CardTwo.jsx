@@ -1,6 +1,7 @@
 import React from 'react';
 import { TfiWrite } from "react-icons/tfi";
 import { FcFeedback } from "react-icons/fc";
+import Link from 'next/link';
 
 const CardTwo = () => {
   return (
@@ -21,9 +22,9 @@ const CardTwo = () => {
           </span>
         </p>
       </div>
-      <div className=" cursor-pointer text-3xl ">
+      <Link href='/crimereport' className=" cursor-pointer text-3xl ">
         <TfiWrite />
-      </div>
+      </Link>
     </div>
   </div>
   )

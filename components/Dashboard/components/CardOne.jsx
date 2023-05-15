@@ -1,6 +1,7 @@
 import React from "react";
 import { IoCreateOutline } from "react-icons/io5";
 import { FcFeedback } from "react-icons/fc";
+import Link from "next/link";
 
 const CardOne = () => {
   return (
@@ -12,7 +13,7 @@ const CardOne = () => {
       <div className="mt-4 flex items-end justify-between">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
-            Complains
+            Complaint
           </h4>
           <p className="mt-4 text-lg font-medium">
             Total complains:{" "}
@@ -21,9 +22,9 @@ const CardOne = () => {
             </span>
           </p>
         </div>
-        <div className=" cursor-pointer text-3xl ">
+        <Link href="/complaint" className=" cursor-pointer text-3xl ">
           <IoCreateOutline />
-        </div>
+        </Link>
       </div>
     </div>
   );

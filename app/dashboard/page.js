@@ -5,19 +5,18 @@ import CardOne from '../../components/Dashboard/components/CardOne';
 import CardTwo from '../../components/Dashboard/components/CardTwo';
 import CardThree from '../../components/Dashboard/components/CardThree'
 import CardFour from '../../components/Dashboard/components/CardFour';
-import ChatCard from '../../components/Dashboard/components/ChatCard';
-import TableOne from '../../components/Dashboard/components/TableOne'
-import ChartOne from '../../components/Dashboard/components/ChartOne';
-import ChartTwo from '../../components/Dashboard/components/ChartTwo';
-import ChartThree from '../../components/Dashboard/components/ChartThree';
-import MapOne from '../../components/Dashboard/components/MapOne'
 import CardFive from '@/components/Dashboard/components/CardFive';
+import DataStats from '@/components/Dashboard/components/DataStats';
+import DashboardCases from '@/components/Dashboard/components/RecentCases';
 
 const Analytics = () => {
   return (
     <DefaultLayout>
+      <div className='grid grid-cols-1 pb-8  gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5'>
+        <DataStats />
+      </div>
       <div className='grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5'>
-        <CardFive/>
+        <CardFive />
         <CardOne />
         <CardTwo />
         <CardThree />
@@ -25,15 +24,10 @@ const Analytics = () => {
       </div>
 
       <div className='mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5'>
-        
-        {/* <ChartOne /> */}
-        {/* <ChartTwo /> */}
-        <ChartThree />
-        {/* <MapOne /> */}
+        <DashboardCases />
         <div className='col-span-12 xl:col-span-8'>
-          <TableOne />
+
         </div>
-        <ChatCard />
       </div>
     </DefaultLayout>
   )

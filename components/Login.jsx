@@ -63,6 +63,15 @@ function LoginBar({ state, setState, toggleSignupBar }) {
             Forgot Password?
           </a>
         </div>
+        <div className="mx-4 my-8 flex justify-between md:mx-10">
+          <div className="mb-2 text-white">Don&apos;t Have an Account?</div>
+          <div
+            onClick={toggleSignupBar}
+            className="mb-2 cursor-pointer font-bold text-[#14b8a6]"
+          >
+            Sign Up
+          </div>
+        </div>
       </form>
     </div>
   );

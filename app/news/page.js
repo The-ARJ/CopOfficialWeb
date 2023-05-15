@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from 'react';
 import DefaultLayout from '../../components/Dashboard/layout/DefaultLayout';
@@ -6,7 +7,7 @@ const News = () => {
     const [search, setSearch] = useState("");
     useEffect(() => {
         const apiKey = process.env.NEXT_PUBLIC_APIKEY;
-        const country = "np";
+        const country = "us,np";
         const apiUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=${country}`;
 
         fetch(apiUrl)

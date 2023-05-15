@@ -17,7 +17,7 @@ function SignupBar({ state, setState }) {
           </span>
         </div>
       </div>
-      <form className="mx-4 mt-8 t ">
+      <form className="t mx-4 mt-8 ">
         <div className=" mb-8">
           <div className=" flex gap-2">
             <div className="mb-4 ">
@@ -30,7 +30,8 @@ function SignupBar({ state, setState }) {
               <input
                 className="text-gray-700 focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight placeholder:text-sm focus:outline-none"
                 id=" Full Name"
-                type=" Full Name"
+                type="text"
+                required
                 placeholder="Eg, Aayush Raj"
               />
             </div>
@@ -43,9 +44,10 @@ function SignupBar({ state, setState }) {
               </label>
               <input
                 className="text-gray-700 focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight placeholder:text-sm focus:outline-none"
-                id=" Full Name"
-                type=" Full Name"
+                id=" Last Name"
+                type="text"
                 placeholder="Eg, Joshi"
+                required
               />
             </div>
           </div>
@@ -60,7 +62,8 @@ function SignupBar({ state, setState }) {
             <input
               className="text-gray-700 focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight placeholder:text-sm focus:outline-none"
               id="Email"
-              type="text"
+              type="email"
+              required
               placeholder="example@email.com"
             />
           </div>
@@ -74,7 +77,8 @@ function SignupBar({ state, setState }) {
             <input
               className="text-gray-700 focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight placeholder:text-sm focus:outline-none"
               id=" Phone Number"
-              type="Phone Number"
+              type="text"
+              required
               placeholder="Eg, 9818984104"
             />
           </div>
@@ -90,6 +94,7 @@ function SignupBar({ state, setState }) {
               id="password"
               type="password"
               placeholder="********"
+              required
             />
           </div>
           <div className="mb-6">
@@ -101,9 +106,10 @@ function SignupBar({ state, setState }) {
             </label>
             <input
               className="text-gray-700 focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight placeholder:text-sm focus:outline-none"
-              id="password"
+              id=" confirm password"
               type="password"
               placeholder="********"
+              required
             />
           </div>
         </div>

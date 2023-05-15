@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 
-import UserOne from '../../../public/images/user/user-01.png'
+import UserOne from '../../../public/assets/user/user-01.png'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -48,7 +48,7 @@ const DropdownUser = () => {
           <span className='block text-sm font-medium text-black dark:text-white'>
             Aayush Raj Joshi
           </span>
-          <span className='block text-xs'>UX Designer</span>
+          <span className='block text-xs'>Software Engineer</span>
         </span>
 
         <span className='h-12 w-12 rounded-full'>

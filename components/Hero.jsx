@@ -29,6 +29,7 @@ const Hero = () => {
             alt="copofficial"
             width={400}
             height={400}
+            priority={true}
           />
         </div>
       </div>
