@@ -1,8 +1,40 @@
-import { BiLogInCircle, BiX } from "react-icons/bi";
+import { BiLogInCircle } from "react-icons/bi";
 import { FiMinimize } from "react-icons/fi";
 import styles from "../app/sidebar.module.css";
+import Service from "../utils/Service";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 function SignupBar({ state, setState }) {
+  const router = useRouter();
+  const [firstName, setFname] = useState("");
+  const [lastName, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
+  const [message, setMessage] = useState("");
+  const handleRegister = (e) => {
+    Service.register({ email, password, firstName, lastName, phoneNumber })
+      .then((res) => {
+        alert("SignUp Successfull");
+        router.push("/");
+      })
+      .catch((err) => alert("Something went wrong"));
+  };
+  useEffect(() => {
+    if (password && confirmpassword && password !== confirmpassword) {
+      setMessage("Incorrect Password");
+      return;
+    }
+    if (password && confirmpassword && password === confirmpassword) {
+      setMessage("");
+      return;
+    }
+    setMessage("");
+  }, [confirmpassword, password]);
+
+  const messageColor = message === "Password Matched" ? "teal" : "red";
   return (
     <div
       className={`fixed bottom-0 top-0 w-full overflow-y-auto bg-[#2d2f5a] p-2 text-center transition-all duration-500 ease-in-out md:w-[400px] lg:w-[400px] ${
@@ -17,7 +49,7 @@ function SignupBar({ state, setState }) {
           </span>
         </div>
       </div>
-      <form className="t mx-4 mt-8 ">
+      <form onSubmit={handleRegister} className="t mx-4 mt-8 ">
         <div className=" mb-8">
           <div className=" flex gap-2">
             <div className="mb-4 ">
@@ -33,6 +65,7 @@ function SignupBar({ state, setState }) {
                 type="text"
                 required
                 placeholder="Eg, Aayush Raj"
+                onChange={(e) => setFname(e.target.value)}
               />
             </div>
             <div className="mb-4 ">
@@ -48,6 +81,7 @@ function SignupBar({ state, setState }) {
                 type="text"
                 placeholder="Eg, Joshi"
                 required
+                onChange={(e) => setLname(e.target.value)}
               />
             </div>
           </div>
@@ -65,6 +99,7 @@ function SignupBar({ state, setState }) {
               type="email"
               required
               placeholder="example@email.com"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-4 ">
@@ -80,6 +115,7 @@ function SignupBar({ state, setState }) {
               type="text"
               required
               placeholder="Eg, 9818984104"
+              onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
           <div className="mb-6">
@@ -95,6 +131,7 @@ function SignupBar({ state, setState }) {
               type="password"
               placeholder="********"
               required
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="mb-6">
@@ -110,9 +147,11 @@ function SignupBar({ state, setState }) {
               type="password"
               placeholder="********"
               required
+              onChange={(e) => setConfirmpassword(e.target.value)}
             />
           </div>
         </div>
+        <div style={{ color: messageColor }}>{message}</div>{" "}
         <div className="flex items-center justify-between gap-4">
           <a
             className="inline-block text-justify align-baseline text-sm text-gray hover:text-white"
@@ -122,7 +161,7 @@ function SignupBar({ state, setState }) {
           </a>
           <button
             className=" focus:shadow-outline flex gap-2 rounded-full bg-[#0c66eea6] px-6 py-2 text-white hover:bg-[#0c66ee] focus:outline-none"
-            type="button"
+            type="submit"
           >
             SignUp
             <BiLogInCircle className=" text-2xl" />
