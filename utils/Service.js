@@ -2,8 +2,8 @@ import axios from "axios";
 
 const baseURL = "http://localhost:3005/users";
 export const imgURL = "http://localhost:3005";
-// export const imgURL = "https://res.cloudinary.com/dy8ua6x3r/image/food_images/su2i6hsgyf5b5ejuy3tz";
-export const foodURL = "http://localhost:3005/foods";
+// export const imgURL = "https://res.cloudinary.com/dy8ua6x3r/image/complaint_images/su2i6hsgyf5b5ejuy3tz";
+export const complaintURL = "http://localhost:3005/complaints";
 export const recommendURL = "http://localhost:3005/recommendation";
 export const notificationURL = "http://localhost:3005/notifications";
 export const feedbackURL = "http://localhost:3005/feedbacks";
@@ -16,6 +16,7 @@ const login = (credentials) => {
 const register = (userDetails) => {
   return axios.post(`${baseURL}/`, userDetails);
 };
+
 const updateUser = (userId, userDetails) => {
   const config = {
     headers: {
@@ -24,84 +25,50 @@ const updateUser = (userId, userDetails) => {
   };
   return axios.put(`${baseURL}/${userId}`, userDetails, config);
 };
-const foods = (foodDetails) => {
-  return axios.get(`${foodURL}`, {
-    headers: {
-      Authorization: `bearer ${window.localStorage.getItem("token")}`,
-    },
-  });
-};
-const getFoodById = (id, token) => {
-  return axios.get(`${foodURL}/${id}`, {
-    headers: {
-      Authorization: `bearer ${token}`,
-    },
-  });
-};
-const deleteFoodbyId = (id, token) => {
-  const config = {
-    headers: {
-      Authorization: `bearer ${token}`,
-    },
-  };
-  return axios.delete(`${foodURL}/${id}`, config);
-};
 
-const addFood = (formData) => {
-  const config = {
-    headers: {
-      Authorization: `bearer ${window.localStorage.getItem("token")}`,
-      "Content-Type": "multipart/form-data",
-    },
-  };
-  return axios.post(`${foodURL}/`, formData, config);
-};
-const getAllFeedback = (foodDetails) => {
-  return axios.get(`${feedbackURL}`, {
+const getAllComplaints = () => {
+  return axios.get(`${complaintURL}`, {
     headers: {
       Authorization: `bearer ${window.localStorage.getItem("token")}`,
     },
   });
 };
 
-const createFeedback = (formData) => {
+const getComplaintById = (id, token) => {
+  return axios.get(`${complaintURL}/${id}`, {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  });
+};
+
+const deleteComplaintbyId = (id, token) => {
+  const config = {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  };
+  return axios.delete(`${complaintURL}/${id}`, config);
+};
+
+const createComplaint = (formData) => {
   const config = {
     headers: {
       Authorization: `bearer ${window.localStorage.getItem("token")}`,
       "Content-Type": "multipart/form-data",
     },
   };
-  return axios.post(`${feedbackURL}/`, formData, config);
+  return axios.post(`${complaintURL}/`, formData, config);
 };
-const updateFood = (foodId, updatedFoodDetails, token) => {
-  return axios.put(`${foodURL}/${foodId}`, updatedFoodDetails, {
+
+const updateComplaint = (complaintId, updatedComplaintDetails, token) => {
+  return axios.put(`${complaintURL}/${complaintId}`, updatedComplaintDetails, {
     headers: {
       Authorization: `bearer ${token}`,
     },
   });
 };
 
-const breakfast = (breakfastDetails) => {
-  return axios.get(`${recommendURL}/breakfast`, {
-    headers: {
-      Authorization: `bearer ${window.localStorage.getItem("token")}`,
-    },
-  });
-};
-const lunch = (breakfastDetails) => {
-  return axios.get(`${recommendURL}/lunch`, {
-    headers: {
-      Authorization: `bearer ${window.localStorage.getItem("token")}`,
-    },
-  });
-};
-const dinner = (breakfastDetails) => {
-  return axios.get(`${recommendURL}/dinner`, {
-    headers: {
-      Authorization: `bearer ${window.localStorage.getItem("token")}`,
-    },
-  });
-};
 
 const users = (userDetails) => {
   return axios.get(`${baseURL}`, {
@@ -181,7 +148,23 @@ const deleteAllNotifications = (token) => {
   };
   return axios.delete(`${notificationURL}`, config);
 };
+const getAllFeedback = (complaintDetails) => {
+  return axios.get(`${feedbackURL}`, {
+    headers: {
+      Authorization: `bearer ${window.localStorage.getItem("token")}`,
+    },
+  });
+};
 
+const createFeedback = (formData) => {
+  const config = {
+    headers: {
+      Authorization: `bearer ${window.localStorage.getItem("token")}`,
+      "Content-Type": "multipart/form-data",
+    },
+  };
+  return axios.post(`${feedbackURL}/`, formData, config);
+};
 const deleteFeedbackbyId = (id, token) => {
   const config = {
     headers: {
@@ -231,23 +214,20 @@ const auth = {
   login,
   register,
   updateUser,
-  foods,
-  addFood,
-  updateFood,
+  getAllComplaints,
+  createComplaint,
+  updateComplaint,
   users,
   getUserById,
-  breakfast,
-  lunch,
-  dinner,
   notification,
   addnotification,
   deleteNotificationbyId,
   updateNotification,
-  getFoodById,
+  getComplaintById,
   getNotificationById,
   deleteAllNotifications,
   deleteUserById,
-  deleteFoodbyId,
+  deleteComplaintbyId,
   notificationforUsers,
   getAllFeedback,
   createFeedback,
