@@ -3,6 +3,8 @@ import DefaultLayout from "../layout/DefaultLayout";
 import Breadcrumb from "./Breadcrumb";
 import SignatureCanvas from "react-signature-canvas";
 import { FaEraser } from "react-icons/fa";
+import { MdCloud } from "react-icons/md";
+import Service from "../../../utils/Service";
 
 const Complaint = () => {
   const [signature, setSignature] = useState(null);
@@ -17,6 +19,63 @@ const Complaint = () => {
   const saveSignature = () => {
     setSignature(sigCanvas.current.toDataURL());
   };
+  const [complaintImage, setComplaintImage] = useState(null);
+const [dat, setDAT] = useState("");
+const [description, setDescription] = useState("");
+const [location, setLocation] = useState("");
+const [offendername, setOffenderName] = useState("");
+const [offenderdet, setOffenderDet] = useState("");
+const [previewImage, setPreviewImage] = useState(null);
+
+const submitForm = async () => {
+  const formData = new FormData();
+  formData.append("complaintImage", complaintImage);
+  formData.append("dat", dat);
+  formData.append("description", description);
+  formData.append("location", location);
+  formData.append("offendername", offendername);
+  formData.append("offenderdet", offenderdet);
+
+  try {
+    const response = await Service.createComplaint(formData);
+    alert("Complaint Sent Successfully");
+    // Optionally, you can handle the response data here
+    clearForm();
+  } catch (err) {
+    alert(err);
+  }
+};
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  submitForm();
+};
+
+const handleImageChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    setComplaintImage(file);
+    const reader = new FileReader();
+    reader.onload = () => {
+      setPreviewImage(reader.result);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    setComplaintImage(null);
+    setPreviewImage(null);
+  }
+};
+
+const clearForm = () => {
+  setComplaintImage(null);
+  setDAT("");
+  setDescription("");
+  setLocation("");
+  setOffenderName("");
+  setOffenderDet("");
+  setPreviewImage(null);
+};
+
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Complaint" />
@@ -30,7 +89,7 @@ const Complaint = () => {
                 Complaint Form
               </h3>
             </div>
-            <form action="#">
+            <form onSubmit={handleSubmit} action="#">
               <div className="p-6.5">
                 <div className=" pb-2">Incident Details</div>
                 <div className="mb-4.5">
@@ -38,7 +97,12 @@ const Complaint = () => {
                     Date and Time
                   </label>
                   <input
-                    placeholder="Date and Time - if known"
+                    type="text"
+                    name="dat"
+                    value={dat}
+                    required
+                    onChange={(event) => setDAT(event.target.value)}
+                    placeholder="Date and DAT - if known"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   />
                 </div>
@@ -49,6 +113,9 @@ const Complaint = () => {
                   <input
                     type="text"
                     required
+                    name="location"
+                    value={location}
+                    onChange={(event) => setLocation(event.target.value)}
                     placeholder="location where incident happened"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   />
@@ -94,6 +161,10 @@ const Complaint = () => {
                     rows="6"
                     required
                     placeholder="Describe the incident"
+                    type="text"
+                    name="description"
+                    value={description}
+                    onChange={(event) => setDescription(event.target.value)}
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   ></textarea>
                 </div>
@@ -105,6 +176,9 @@ const Complaint = () => {
                   <input
                     type="text"
                     placeholder="eg; Ram"
+                    name="offendername"
+                    value={offendername}
+                    onChange={(event) => setOffenderName(event.target.value)}
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   />
                 </div>
@@ -114,6 +188,9 @@ const Complaint = () => {
                   </label>
                   <input
                     type="text"
+                    name="offenderdetail"
+                    value={offenderdet}
+                    onChange={(event) => setOffenderDet(event.target.value)}
                     placeholder="phone, email, or any details"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                   />
@@ -121,13 +198,64 @@ const Complaint = () => {
                 <div className=" pb-2">Supporting Documents - if have</div>
                 <div className="mb-4.5">
                   <label className="mb-2.5 block text-black dark:text-white">
-                  Any relevant documents, photos, or videos that support the complaint.
+                    Any relevant documents, photos, or videos that support the
+                    complaint.
                   </label>
-                  <input
-                    placeholder="eg; Ram"
-                    type="file"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                  />
+                  <div
+                    className="border-gray-300 h-225 md:h-420 group flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 "
+                    style={{
+                      backgroundImage: `url(${previewImage || ""})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    {!complaintImage ? (
+                      <div className="border-gray-300 h-225 md:h-420 group flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 ">
+                        <label className="flex h-full w-full cursor-pointer flex-col items-center justify-center">
+                          <div className="flex h-full w-full flex-col items-center justify-center gap-2">
+                            <MdCloud className="text-gray-500 hover:text-gray-700 text-3xl" />
+                            <p className="text-gray-500 hover:text-gray-700">
+                              Click Here to Upload
+                            </p>
+                          </div>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            name="complaintImage"
+                            id="image"
+                            onChange={handleImageChange}
+                            className="h-0 w-0"
+                          />
+                        </label>
+                      </div>
+                    ) : (
+                      <div
+                        className="border-gray-300 h-225 md:h-420 group flex w-full cursor-pointer flex-col items-center justify-center rounded-lg "
+                        style={{
+                          backgroundImage: `url(${previewImage || ""})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      >
+                        <label className="flex h-full w-full cursor-pointer flex-col items-center justify-center">
+                          <div className="flex h-full w-full flex-col items-center justify-center gap-2">
+                            <MdCloud className="text-gray-500 hover:text-gray-700 text-3xl" />
+                            <p className="text-gray-500 hover:text-gray-700">
+                              Click Here to Upload
+                            </p>
+                          </div>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            name="foodImage"
+                            id="image"
+                            onChange={handleImageChange}
+                            className="h-0 w-0"
+                          />
+                        </label>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <div className=" pb-4 text-center uppercase ">
                   your complaint will remain safe with us
@@ -150,7 +278,10 @@ const Complaint = () => {
                     <FaEraser className=" text-xl " onClick={clearSignature} />
                   </div>
                 </div> */}
-                <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray">
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray"
+                >
                   Send Message
                 </button>
               </div>
@@ -173,7 +304,7 @@ const Complaint = () => {
                 <li className="mb-2">
                   Provide accurate information: When filing a complaint,
                   it&apos;s important to provide accurate information about the
-                  incident, including the date, time, location, and description
+                  incident, including the date, dat, location, and description
                   of what happened. This will help us investigate and resolve
                   the complaint more effectively.
                 </li>
