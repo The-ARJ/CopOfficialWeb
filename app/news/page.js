@@ -2,6 +2,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import DefaultLayout from '../../components/Dashboard/layout/DefaultLayout';
+import protectedRoute from '@/utils/protectedRoutes';
 const News = () => {
     const [news, setNews] = useState([]);
     const [search, setSearch] = useState("");
@@ -85,4 +86,4 @@ const News = () => {
     )
 }
 
-export default News;
+export default protectedRoute(News);

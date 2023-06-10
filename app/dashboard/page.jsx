@@ -8,6 +8,7 @@ import CardFour from '../../components/Dashboard/components/CardFour';
 import CardFive from '../../components/Dashboard/components/CardFive';
 import DataStats from '../..//components/Dashboard/components/DataStats';
 import DashboardCases from '../..//components/Dashboard/components/RecentCases';
+import protectedRoute from "../../utils/protectedRoutes";
 
 const Analytics = () => {
   return (
@@ -33,4 +34,4 @@ const Analytics = () => {
   )
 }
 
-export default Analytics;
+export default protectedRoute(Analytics);

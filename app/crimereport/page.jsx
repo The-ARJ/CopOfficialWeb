@@ -2,6 +2,7 @@
 import React, { useState, useRef } from "react";
 import DefaultLayout from "@/components/Dashboard/layout/DefaultLayout";
 import Breadcrumb from "@/components/Dashboard/components/Breadcrumb";
+import protectedRoute from "@/utils/protectedRoutes";
 
 const CrimeReport = () => {
   const [signature, setSignature] = useState(null);
@@ -195,4 +196,4 @@ const CrimeReport = () => {
   );
 };
 
-export default CrimeReport;
+export default protectedRoute(CrimeReport);

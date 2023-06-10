@@ -7,6 +7,7 @@ import Service from "../../utils/Service";
 import { UserContext } from "../../utils/UserContext";
 import UserImage from "../../public/assets/user/user-01.png";
 import { imgURL } from "../../utils/Service";
+import protectedRoute from "../../utils/protectedRoutes";
 
 const Profile = () => {
   const { user, loading, error, dispatch } = useContext(UserContext);
@@ -255,4 +256,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default protectedRoute(Profile);
