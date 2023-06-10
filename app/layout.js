@@ -1,4 +1,5 @@
 import "./globals.css";
+import { UserProvider } from "@/utils/UserContext";
 
 export const metadata = {
   title: "CopOfficial",
@@ -8,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><UserProvider>{children}</UserProvider></body>
     </html>
   );
 }

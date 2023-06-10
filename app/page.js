@@ -1,5 +1,5 @@
 import { Poppins } from "next/font/google";
-import Landing from "@/components/Landing";
+import Landing from "../components/Landing";
 
 const poppins = Poppins({
   weight: '400',

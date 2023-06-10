@@ -1,6 +1,6 @@
 "use client";
-import React from 'react';
 import CrimeReport from '@/components/Dashboard/components/CrimeReport';
+import React from 'react';
 
 const CrimeReports = () => {
     return (

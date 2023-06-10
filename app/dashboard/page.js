@@ -5,9 +5,9 @@ import CardOne from '../../components/Dashboard/components/CardOne';
 import CardTwo from '../../components/Dashboard/components/CardTwo';
 import CardThree from '../../components/Dashboard/components/CardThree'
 import CardFour from '../../components/Dashboard/components/CardFour';
-import CardFive from '@/components/Dashboard/components/CardFive';
-import DataStats from '@/components/Dashboard/components/DataStats';
-import DashboardCases from '@/components/Dashboard/components/RecentCases';
+import CardFive from '../../components/Dashboard/components/CardFive';
+import DataStats from '../..//components/Dashboard/components/DataStats';
+import DashboardCases from '../..//components/Dashboard/components/RecentCases';
 
 const Analytics = () => {
   return (

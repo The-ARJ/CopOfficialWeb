@@ -1,6 +1,6 @@
 "use client";
-import React from 'react';
 import Complaint from '@/components/Dashboard/components/Complaint';
+import React from 'react';
 
 const Complaints = () => {
     return (

@@ -25,7 +25,6 @@ const updateUser = (userId, userDetails) => {
   };
   return axios.put(`${baseURL}/${userId}`, userDetails, config);
 };
-
 const getAllComplaints = () => {
   return axios.get(`${complaintURL}`, {
     headers: {
@@ -84,6 +83,14 @@ const getUserById = (id, token) => {
     },
   };
   return axios.get(`${baseURL}/${id}`, config);
+};
+const getCurrentUser = () => {
+  const config = {
+    headers: {
+      Authorization: `bearer ${window.localStorage.getItem("token")}`,
+    },
+  };
+  return axios.get(`${baseURL}/current/user`, config);
 };
 const deleteUserById = (id, token) => {
   const config = {
@@ -236,7 +243,8 @@ const auth = {
   getAllContact,
   createContact,
   deleteContactbyId,
-  deleteAllContacts
+  deleteAllContacts,
+  getCurrentUser
 };
 
 export default auth;
