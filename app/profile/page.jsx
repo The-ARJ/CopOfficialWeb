@@ -1,36 +1,35 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import DefaultLayout from "../../components/Dashboard/layout/DefaultLayout";
 import Breadcrumb from "../../components/Dashboard/components/Breadcrumb";
-import userThree from "../../public/assets/user/user-02.png";
 import Image from "next/image";
 import Service from "../../utils/Service";
 import { UserContext } from "../../utils/UserContext";
+import UserImage from "../../public/assets/user/user-01.png";
+import { imgURL } from "../../utils/Service";
+
 const Profile = () => {
   const { user, loading, error, dispatch } = useContext(UserContext);
-  const [userDetails, setUserDetails] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [userImage, setUserImage] = useState(null);
+  const [profession, setProfession] = useState("");
+  const [userImage, setImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   function handleImageChange(event) {
-    const selectedFile = event.target.files[0];
-    setUserImage(selectedFile);
+    try {
+      const selectedFile = event.target.files[0];
+      setPreviewImage(URL.createObjectURL(selectedFile));
+      setImage(selectedFile);
+    } catch (error) {
+      console.error("Error while handling image change: ", error);
+    }
   }
+
   const userToken = window.localStorage.getItem("token");
 
-  useEffect(() => {
-    Service.getCurrentUser()
-      .then((res) => {
-        setUserDetails(res.data.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-  console.log(userDetails);
   const handleSave = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -38,10 +37,12 @@ const Profile = () => {
     formData.append("lastName", lastName);
     formData.append("email", email);
     formData.append("phone", phoneNumber);
+    formData.append("profession", profession);
     if (userImage) {
       formData.append("userImage", userImage);
     }
-    Service.updateUser(userDetails._id, formData, userToken)
+
+    Service.updateUser(user._id, formData, userToken)
       .then((res) => {
         if (res.status === 200) {
           // Update the user state with the new data
@@ -51,6 +52,7 @@ const Profile = () => {
             lastName,
             email,
             phoneNumber,
+            imageURL: res.data.imageURL, // Update the user image URL
           };
           dispatch({ type: "SET_USER", payload: updatedUser });
 
@@ -63,12 +65,14 @@ const Profile = () => {
         alert(err);
       });
   };
+
   if (loading) {
     return <div>Loading...</div>;
   }
   if (error) {
     return <div>Error: {error}</div>;
   }
+
   return (
     <DefaultLayout>
       <>
@@ -88,29 +92,48 @@ const Profile = () => {
                       <div className=" border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                         <div className="p-7">
                           <div className="mb-4 flex items-center gap-3">
-                            <div className="h-14 w-14 rounded-full">
-                              <Image src={userThree} alt="User" />
-                            </div>
+                            <label
+                              htmlFor="imageUpload"
+                              className="h-14 w-14 rounded-full"
+                            >
+                              {previewImage ? (
+                                <img
+                                  src={previewImage}
+                                  alt="User"
+                                  className="h-14 w-14 rounded-full"
+                                />
+                              ) : (
+                                <Image
+                                  width={200}
+                                  height={200}
+                                  className="h-14 w-14 rounded-full object-cover"
+                                  src={
+                                    user.image
+                                      ? `${imgURL}${user.image}`
+                                      : `${UserImage}`
+                                  }
+                                  alt="User"
+                                />
+                              )}
+                            </label>
                             <div>
-                              <span className="mb-1.5 text-black dark:text-white">
-                                {user.firstName}
-                              </span>
-                              <span className="flex gap-2.5">
-                                <div className="cursor-pointer text-sm hover:text-primary">
-                                  Delete
-                                </div>
-                                <div className="cursor-pointer text-sm hover:text-primary">
-                                  Update
-                                </div>
-                              </span>
+                              {user.firstName} {user.lastName}
                             </div>
                           </div>
                           <div className="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border-2 border-dashed border-primary bg-gray px-4 py-4 dark:bg-meta-4 sm:py-7.5">
                             <input
                               type="file"
+                              id="imageUpload"
                               accept="image/*"
+                              className="hidden"
                               onChange={handleImageChange}
                             />
+                            <label
+                              htmlFor="imageUpload"
+                              className="absolute inset-0 flex h-full w-full cursor-pointer items-center justify-center"
+                            >
+                              {previewImage ? "Change Image" : "Upload Image"}
+                            </label>
                           </div>
                         </div>
                       </div>
@@ -129,6 +152,7 @@ const Profile = () => {
                               name="firstName"
                               id="firstName"
                               placeholder={user.firstName}
+                              value={firstName}
                               onChange={(e) => setFirstName(e.target.value)}
                             />
                           </div>
@@ -146,8 +170,8 @@ const Profile = () => {
                             type="text"
                             name="lastName"
                             id="lastName"
-                            // value={lastName}
                             placeholder={user.lastName}
+                            value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                           />
                         </div>
@@ -167,6 +191,7 @@ const Profile = () => {
                             name="emailAddress"
                             id="emailAddress"
                             placeholder={user.email}
+                            value={email}
                             onChange={(e) => setEmail(e.target.value)}
                           />
                         </div>
@@ -175,26 +200,39 @@ const Profile = () => {
                       <div className="mb-5.5">
                         <label
                           className="mb-3 block text-sm font-medium text-black dark:text-white"
-                          htmlFor="Phone Number"
+                          htmlFor="phoneNumber"
                         >
                           Phone Number
                         </label>
                         <input
                           className="w-full rounded border border-stroke bg-gray px-4.5 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                           type="text"
-                          name="Phone Number"
-                          id="Phone Number"
+                          name="phoneNumber"
+                          id="phoneNumber"
                           placeholder={user.phoneNumber}
+                          value={phoneNumber}
                           onChange={(e) => setPhoneNumber(e.target.value)}
                         />
                       </div>
-                      <div className="flex justify-end gap-4.5">
-                        <button
-                          type="button"
-                          className="flex justify-center rounded border border-stroke px-6 py-2 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
+                      <div className="mb-5.5">
+                        <label
+                          className="mb-3 block text-sm font-medium text-black dark:text-white"
+                          htmlFor="phoneNumber"
                         >
-                          Cancel
-                        </button>
+                          Profession
+                        </label>
+                        <input
+                          className="w-full rounded border border-stroke bg-gray px-4.5 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                          type="text"
+                          name="phoneNumber"
+                          id="phoneNumber"
+                          placeholder={user.profession}
+                          value={profession}
+                          onChange={(e) => setProfession(e.target.value)}
+                        />
+                      </div>
+
+                      <div className="flex justify-end gap-4.5">
                         <button
                           className="flex justify-center rounded bg-primary px-6 py-2 font-medium text-gray hover:shadow-1"
                           type="submit"

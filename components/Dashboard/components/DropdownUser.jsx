@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import UserOne from "../../../public/assets/user/user-01.png";
+import UserImage from "../../../public/assets/user/user-01.png";
+import { imgURL } from "../../../utils/Service";
 import Link from "next/link";
 import Image from "next/image";
 import { UserContext } from "../../../utils/UserContext";
@@ -58,11 +59,17 @@ const DropdownUser = () => {
                 <span className="block text-sm font-medium text-black dark:text-white">
                   {user.firstName}
                 </span>
-                <span className="block text-xs">Software Engineer</span>
+                <span className="block text-xs">{user.profession}</span>
               </span>
 
               <span className="h-12 w-12 rounded-full">
-                <Image src={UserOne} alt="User" />
+                <Image
+                  src={user.image ? `${imgURL}${user.image}` : `${UserImage}`}
+                  alt="User"
+                  width={200}
+                  height={200}
+                  className="h-12 w-12 rounded-full "
+                />
               </span>
 
               <svg
