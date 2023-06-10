@@ -13,7 +13,7 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "eslint": "8.38.0",
-    "eslint-config-next": "^13.4.2",
+    "eslint-config-next": "^13.4.4",
     "jsvectormap": "^1.5.3",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

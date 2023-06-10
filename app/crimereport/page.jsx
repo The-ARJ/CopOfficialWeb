@@ -1,8 +1,7 @@
+"use client";
 import React, { useState, useRef } from "react";
-import DefaultLayout from "../layout/DefaultLayout";
-import Breadcrumb from "./Breadcrumb";
-import SignatureCanvas from "react-signature-canvas";
-import { FaEraser } from "react-icons/fa";
+import DefaultLayout from "@/components/Dashboard/layout/DefaultLayout";
+import Breadcrumb from "@/components/Dashboard/components/Breadcrumb";
 
 const CrimeReport = () => {
   const [signature, setSignature] = useState(null);
@@ -133,24 +132,6 @@ const CrimeReport = () => {
                 <div className=" pb-4 text-center uppercase ">
                   your report will remain safe with us
                 </div>
-                {/* <div className="mb-6 ">
-                  <label className="mb-2.5 block text-black dark:text-white">
-                    Signature
-                  </label>
-                  <div className="border border-form-strokedark">
-                    <SignatureCanvas
-                      ref={sigCanvas}
-                      penColor="white"
-                      canvasProps={{
-                        width: 500,
-                        height: 200,
-                        placeholder: "Please sign here",
-                        className: "sigCanvas",
-                      }}
-                    />
-                    <FaEraser className=" text-xl " onClick={clearSignature} />
-                  </div>
-                </div> */}
                 <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray">
                   Send Message
                 </button>

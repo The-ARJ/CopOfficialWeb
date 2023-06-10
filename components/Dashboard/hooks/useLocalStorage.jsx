@@ -1,16 +1,4 @@
 import { useState, useEffect } from "react";
-export const fetchUser = () => {
-  let userInfo;
-  
-  if (typeof window !== 'undefined') { // check if code is running on client-side
-    userInfo = window.localStorage.getItem("user") !== "undefined"
-      ? JSON.parse(localStorage.getItem("user"))
-      : localStorage.clear();
-  }
-
-  return userInfo;
-};
-
 const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {
