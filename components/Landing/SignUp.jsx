@@ -1,7 +1,7 @@
 import { BiLogInCircle } from "react-icons/bi";
 import { FiMinimize } from "react-icons/fi";
-import styles from "../app/sidebar.module.css";
-import Service from "../utils/Service";
+import styles from "../../app/sidebar.module.css";
+import Service from "../../utils/Service";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 

@@ -13,7 +13,7 @@ import {
   BiStar,
 } from "react-icons/bi";
 import { FiMinimize } from "react-icons/fi";
-import styles from "../app/sidebar.module.css";
+import styles from "../../app/sidebar.module.css";
 import Link from "next/link";
 
 function Sidebar({ state, setState, toggleContactBar }) {

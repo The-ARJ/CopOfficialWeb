@@ -1,9 +1,9 @@
 import { BiLogInCircle } from "react-icons/bi";
 import { FiMinimize } from "react-icons/fi";
-import styles from "../app/sidebar.module.css";
+import styles from "../../app/sidebar.module.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Service from "../utils/Service";
+import Service from "../../utils/Service";
 
 function LoginBar({ state, setState, toggleSignupBar }) {
   const [email, setEmail] = useState("");

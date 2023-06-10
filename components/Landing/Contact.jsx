@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { BiSend } from "react-icons/bi";
 import { FiMinimize } from "react-icons/fi";
-import styles from "../app/sidebar.module.css";
-import Service from "../utils/Service";
+import styles from "../../app/sidebar.module.css";
+import Service from "../../utils/Service";
 
 function ContactBar({ state, setState }) {
   const [fullName, setFullName] = useState("");
