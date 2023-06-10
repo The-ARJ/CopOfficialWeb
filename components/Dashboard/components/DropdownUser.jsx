@@ -61,14 +61,13 @@ const DropdownUser = () => {
                 </span>
                 <span className="block text-xs">{user.profession}</span>
               </span>
-
               <span className="h-12 w-12 rounded-full">
                 <Image
-                  src={user.image ? `${imgURL}${user.image}` : `${UserImage}`}
+                  src={user.image ? `${imgURL}/${user.image}` : UserImage}
                   alt="User"
                   width={200}
                   height={200}
-                  className="h-12 w-12 rounded-full "
+                  className="h-12 w-12 rounded-full"
                 />
               </span>
 

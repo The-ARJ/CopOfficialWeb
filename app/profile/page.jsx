@@ -109,8 +109,8 @@ const Profile = () => {
                                   className="h-14 w-14 rounded-full object-cover"
                                   src={
                                     user.image
-                                      ? `${imgURL}${user.image}`
-                                      : `${UserImage}`
+                                      ? `${imgURL}/${user.image}`
+                                      : UserImage
                                   }
                                   alt="User"
                                 />
