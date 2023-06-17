@@ -3,22 +3,10 @@ import React, { useState, useRef } from "react";
 import { MdCloud } from "react-icons/md";
 import DefaultLayout from "@/components/Dashboard/layout/DefaultLayout";
 import Breadcrumb from "@/components/Dashboard/components/Breadcrumb";
-import Services from "@/components/Landing/Services";
 import protectedRoute from "@/utils/protectedRoutes";
+import Service from "../../utils/Service";
 
 const Complaint = () => {
-  const [signature, setSignature] = useState(null);
-  const sigCanvas = useRef(null);
-
-  const clearSignature = () => {
-    event.preventDefault();
-    sigCanvas.current.clear();
-    setSignature(null);
-  };
-
-  const saveSignature = () => {
-    setSignature(sigCanvas.current.toDataURL());
-  };
   const [complaintImage, setComplaintImage] = useState(null);
   const [dat, setDAT] = useState("");
   const [description, setDescription] = useState("");
@@ -37,7 +25,7 @@ const Complaint = () => {
     formData.append("offenderdet", offenderdet);
 
     try {
-      const response = await Services.createComplaint(formData);
+      const response = await Service.createComplaint(formData);
       alert("Complaint Sent Successfully");
       // Optionally, you can handle the response data here
       clearForm();

@@ -25,10 +25,10 @@ const updateUser = (userId, userDetails) => {
   };
   return axios.put(`${baseURL}/${userId}`, userDetails, config);
 };
-const getAllComplaints = () => {
+const getAllComplaints = (token) => {
   return axios.get(`${complaintURL}`, {
     headers: {
-      Authorization: `bearer ${window.localStorage.getItem("token")}`,
+      Authorization: `bearer ${token}`,
     },
   });
 };
