@@ -4,6 +4,7 @@ const baseURL = "http://localhost:3005/users";
 export const imgURL = "http://localhost:3005";
 // export const imgURL = "https://res.cloudinary.com/dy8ua6x3r/image/complaint_images/su2i6hsgyf5b5ejuy3tz";
 export const complaintURL = "http://localhost:3005/complaints";
+export const crimeReportURL = "http://localhost:3005/crime-report";
 export const recommendURL = "http://localhost:3005/recommendation";
 export const notificationURL = "http://localhost:3005/notifications";
 export const feedbackURL = "http://localhost:3005/feedbacks";
@@ -62,6 +63,60 @@ const createComplaint = (formData) => {
 
 const updateComplaint = (complaintId, updatedComplaintDetails, token) => {
   return axios.put(`${complaintURL}/${complaintId}`, updatedComplaintDetails, {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  });
+};
+
+//Cases
+const getAllCases = (token) => {
+  return axios.get(`${crimeReportURL}`, {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  });
+};
+
+//Crime Report Services
+
+const getAllCrimeReports = (token) => {
+  return axios.get(`${crimeReportURL}`, {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  });
+};
+
+const getCrimeReportById = (id, token) => {
+  return axios.get(`${crimeReportURL}/${id}`, {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  });
+};
+
+const deleteCrimeReportById = (id, token) => {
+  const config = {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  };
+  return axios.delete(`${crimeReportURL}/${id}`, config);
+};
+
+const createCrimeReport = (formData) => {
+  const config = {
+    headers: {
+      Authorization: `bearer ${window.localStorage.getItem("token")}`,
+      "Content-Type": "multipart/form-data",
+    },
+  };
+  return axios.post(`${crimeReportURL}/`, formData, config);
+};
+
+const updateCrimeReport = (crimeReportId, updatedCrimeReportDetails, token) => {
+  return axios.put(`${crimeReportURL}/${crimeReportId}`, updatedCrimeReportDetails, {
     headers: {
       Authorization: `bearer ${token}`,
     },
@@ -244,7 +299,9 @@ const auth = {
   createContact,
   deleteContactbyId,
   deleteAllContacts,
-  getCurrentUser
+  getCurrentUser,
+  getAllCrimeReports, getCrimeReportById,
+  deleteCrimeReportById, createCrimeReport, updateCrimeReport
 };
 
 export default auth;

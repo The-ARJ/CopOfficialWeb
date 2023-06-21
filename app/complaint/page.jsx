@@ -27,7 +27,6 @@ const Complaint = () => {
     try {
       const response = await Service.createComplaint(formData);
       alert("Complaint Sent Successfully");
-      // Optionally, you can handle the response data here
       clearForm();
     } catch (err) {
       alert(err);
@@ -212,7 +211,7 @@ const Complaint = () => {
                     )}
                   </div>
                 </div>
-                <div className=" pb-4 text-center uppercase ">
+                <div className=" pb-4 text-center uppercase text-meta-6">
                   your complaint will remain safe with us
                 </div>
                 <button
@@ -234,7 +233,7 @@ const Complaint = () => {
               </h3>
             </div>
             <div className="container mx-auto px-4 py-10">
-              <h2 className="mb-4 text-2xl font-bold">
+              <h2 className="mb-4 text-2xl font-bold text-meta-6">
                 Guidelines for Filing a Complaint
               </h2>
               <ul className="ml-6 list-disc">

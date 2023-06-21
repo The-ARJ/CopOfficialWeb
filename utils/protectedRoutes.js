@@ -20,7 +20,7 @@ const protectedRoute = (WrappedComponent) => {
                         // Token is valid
                         setLoading(false);
                         // Get the allowed pages
-                        const allowedPages = ["/profile", "/case", "/complaint", "/crimereport", "/fir", "/settings", "/news"];
+                        const allowedPages = ["/profile", "/case", "/complaint", "/crime-report", "/fir", "/settings", "/news"];
                         if (allowedPages.includes(pathname)) {
                         } else {
                             router.push("/dashboard");

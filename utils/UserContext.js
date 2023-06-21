@@ -66,20 +66,16 @@ export const useUser = () => {
     };
 
     useEffect(() => {
-        fetchUser();
-    }, []);
+        const token = localStorage.getItem('token');
+        if (token && !state.user) { // Fetch user only if token exists and user is not already set
+            fetchUser();
+        }
+    }, [state.user]);
 
     const logout = () => {
         dispatch({ type: 'LOGOUT' });
         localStorage.removeItem('token');
     };
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            fetchUser();
-        }
-    }, [state.user]);
 
     return { ...state, dispatch, logout };
 };
