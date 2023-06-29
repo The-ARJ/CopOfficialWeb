@@ -2,6 +2,7 @@
 import DefaultLayout from "@/components/Dashboard/layout/DefaultLayout";
 import React, { useEffect, useState } from "react";
 import Service from "../../utils/Service";
+const imgURL = "http://localhost:3005";
 import {
   AiFillDelete,
   AiFillEye,
@@ -13,7 +14,6 @@ import {
 const Cases = () => {
   const [cases, setCases] = useState([]);
   const [expandedRows, setExpandedRows] = useState([]);
-
   useEffect(() => {
     getAllCases();
   }, []);
@@ -21,22 +21,32 @@ const Cases = () => {
   const getAllCases = async () => {
     try {
       const token = window.localStorage.getItem("token");
+
       const complaintResponse = await Service.getAllComplaints(token);
-      const crimeReportResponse = await Service.getAllCrimeReports(token);
       const complaintCases = complaintResponse.data.data.map((complaint) => ({
         ...complaint,
         caseType: "complaint",
       }));
+
+      const crimeReportResponse = await Service.getAllCrimeReports(token);
       const crimeReportCases = crimeReportResponse.data.data.map(
         (crimeReport) => ({
           ...crimeReport,
           caseType: "crimeReport",
         })
       );
-      const allCases = [...complaintCases, ...crimeReportCases];
+
+      const firResponse = await Service.getAllFIRs(token);
+      const firCases = firResponse.data.data.map((fir) => ({
+        ...fir,
+        caseType: "fir",
+      }));
+
+      const allCases = [...complaintCases, ...crimeReportCases, ...firCases];
       setCases(allCases);
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      // Handle the error appropriately (e.g., show an error message)
     }
   };
 
@@ -45,10 +55,13 @@ const Cases = () => {
       const token = window.localStorage.getItem("token");
       if (caseType === "complaint") {
         await Service.deleteComplaintbyId(id, token);
-        getAllCases(); // Refresh the case list after deletion
+        getAllCases();
       } else if (caseType === "crimeReport") {
         await Service.deleteCrimeReportById(id, token);
-        getAllCases(); // Refresh the case list after deletion
+        getAllCases();
+      } else if (caseType === "fir") {
+        await Service.deleteFIRById(id, token);
+        getAllCases();
       }
     } catch (error) {
       console.log(error);
@@ -77,6 +90,9 @@ const Cases = () => {
                 <th className="min-w-[150px] px-2 py-4 font-medium text-black dark:text-white">
                   Description
                 </th>
+                <th className="min-w-[150px] px-2 py-4 font-medium text-black dark:text-white">
+                  Crime Type
+                </th>
                 <th className="min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">
                   Issued Date
                 </th>
@@ -103,29 +119,55 @@ const Cases = () => {
                           className="flex cursor-pointer items-center"
                           onClick={() => toggleDescription(index)}
                         >
-                          {caseItem.description.length > 30 &&
-                          !expandedRows.includes(index) ? (
+                          {caseItem.case[0]?.casetype === "fir" ? (
                             <>
-                              <h5 className="font-medium text-black dark:text-white">
-                                {`${caseItem.description.substring(0, 30)}...`}
-                              </h5>
-                              <AiOutlineDown className="text-gray-500 ml-1" />
+                              <video
+                                width="200"
+                                height="500"
+                                className=" rounded-lg "
+                                controls
+                              >
+                                <source
+                                  src={`${imgURL}${caseItem.video}`}
+                                  type="video/mp4"
+                                />
+                              </video>
                             </>
                           ) : (
                             <>
-                              <h5 className="font-medium text-black dark:text-white">
-                                {caseItem.description}
-                              </h5>
-                              {expandedRows.includes(index) ? (
-                                <AiOutlineUp className="text-gray-500 ml-1" />
+                              {caseItem.description.length > 30 &&
+                              !expandedRows.includes(index) ? (
+                                <>
+                                  <h5 className="font-medium text-black dark:text-white">
+                                    {`${caseItem.description.substring(
+                                      0,
+                                      30
+                                    )}...`}
+                                  </h5>
+                                  <AiOutlineDown className="text-gray-500 ml-1" />
+                                </>
                               ) : (
-                                <AiOutlineDown className="text-gray-500 ml-1" />
+                                <>
+                                  <h5 className="font-medium text-black dark:text-white">
+                                    {caseItem.description}
+                                  </h5>
+                                  {expandedRows.includes(index) ? (
+                                    <AiOutlineUp className="text-gray-500 ml-1" />
+                                  ) : (
+                                    <AiOutlineDown className="text-gray-500 ml-1" />
+                                  )}
+                                </>
                               )}
                             </>
                           )}
                         </div>
                       </td>
 
+                      <td className="px-4 py-5">
+                        <p className="uppercase text-black dark:text-white">
+                          {caseItem.case[0]?.casetype}
+                        </p>
+                      </td>
                       <td className="px-4 py-5">
                         <p className="text-black dark:text-white">
                           {new Date(caseItem.createdAt).toLocaleString()}

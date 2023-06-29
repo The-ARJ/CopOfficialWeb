@@ -4,6 +4,7 @@ import Service from "../../../utils/Service"; // Import your service file
 
 const DashboardCases = () => {
   const [mostRecentCase, setMostRecentCase] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getAllCases();
@@ -17,7 +18,7 @@ const DashboardCases = () => {
 
       // Retrieve only the most recent complaint
       const complaintCases = complaintResponse.data.data
-        .sort((a, b) => new Date(b.filedDate) - new Date(a.filedDate))
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
         .map((complaint) => ({
           ...complaint,
           caseType: "complaint",
@@ -26,7 +27,7 @@ const DashboardCases = () => {
 
       // Retrieve only the most recent crime report
       const crimeReportCases = crimeReportResponse.data.data
-        .sort((a, b) => new Date(b.filedDate) - new Date(a.filedDate))
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
         .map((crimeReport) => ({
           ...crimeReport,
           caseType: "crimereport",
@@ -39,15 +40,18 @@ const DashboardCases = () => {
       if (allCases.length > 0) {
         setMostRecentCase(allCases[0]);
       }
+
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
   return (
     <>
       <div className="col-span-12 rounded-3xl border border-stroke bg-white px-5 pb-5 pt-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 ">
-        {mostRecentCase && (
+        {!isLoading && mostRecentCase ? (
           <div className="">
             <div className="">
               <div className="mb-3 justify-between gap-4 sm:flex">
@@ -117,6 +121,10 @@ const DashboardCases = () => {
                 </div>
               </div>
             </div>
+          </div>
+        ) : (
+          <div className="flex h-full items-center justify-center">
+            <p className="text-gray-500">No cases available</p>
           </div>
         )}
       </div>

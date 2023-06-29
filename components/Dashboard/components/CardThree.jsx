@@ -1,6 +1,7 @@
 import React from "react";
 import { BsPersonVideo } from "react-icons/bs";
 import { FcFeedback } from "react-icons/fc";
+import Link from "next/link";
 
 const CardThree = () => {
   return (
@@ -21,9 +22,12 @@ const CardThree = () => {
             </span>
           </p>
         </div>
-        <div className=" cursor-pointer text-3xl ">
+        <Link
+          href="/first-information-report"
+          className="cursor-pointer text-3xl"
+        >
           <BsPersonVideo />
-        </div>
+        </Link>
       </div>
     </div>
   );
