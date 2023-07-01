@@ -100,20 +100,24 @@ const Cases = () => {
             userDetails[index]?.lastName || "Owner"
           }`,
         }));
+
+        // Sort the cases by case ID in descending order
+        newUpdatedCases.sort((a, b) => b.case[0]?.caseId - a.case[0]?.caseId);
+
         setUpdatedCases(newUpdatedCases); // Set the updated cases here
       })
       .catch((error) => {
         console.error("Failed to fetch user details:", error);
         // Handle the error if needed
       });
-  }, [cases]); // useEffect only depends on changes to `cases` now
+  }, [cases]);
 
   console.log(updatedCases);
   return (
     <DefaultLayout>
       <>
         <div className="flex justify-between py-2">
-          <div className=" flex text-2xl font-bold">All Cases</div>
+          <div className=" flex font-bold md:text-2xl">All Cases</div>
           <CreateCaseDropdown />{" "}
         </div>
         <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -125,7 +129,7 @@ const Cases = () => {
                     Case ID
                   </th>
                   <th className="min-w-[150px] px-2 py-4 font-medium text-black dark:text-white">
-                    Description
+                    descripion
                   </th>
                   <th className="min-w-[150px] px-2 py-4 font-medium text-black dark:text-white">
                     Crime Type
@@ -143,82 +147,77 @@ const Cases = () => {
               </thead>
               <tbody>
                 {updatedCases.length > 0 ? (
-                  updatedCases
-                    .slice()
-                    .reverse()
-                    .map((caseItem, index) => (
-                      <React.Fragment key={caseItem._id}>
-                        <tr>
-                          <td className="px-4 py-5">
-                            <h5 className="font-medium text-black dark:text-white">
-                              {caseItem.case[0]?.caseId}
-                            </h5>
-                          </td>
-                          <td className="px-4 py-5">
-                            <div
-                              className="flex cursor-pointer items-center"
-                              onClick={() => toggleDescription(index, caseItem)}
-                            >
-                              {user.role === "admin" ||
-                              user.role === "police" ? (
-                                <h5 className="font-medium text-black dark:text-white">
-                                  {caseItem.ownerName}
-                                </h5>
-                              ) : caseItem.case[0]?.casetype === "fir" ? (
-                                <video
-                                  width="200"
-                                  height="500"
-                                  className="rounded-lg"
-                                  controls
-                                >
-                                  <source
-                                    src={`${imgURL}${caseItem.video}`}
-                                    type="video/mp4"
-                                  />
-                                </video>
-                              ) : caseItem.description.length > 30 ? (
-                                <h5
-                                  onClick={() => togglemodal(index, caseItem)}
-                                  className="font-medium text-black dark:text-white"
-                                >
-                                  {`${caseItem.description.substring(
-                                    0,
-                                    30
-                                  )}...`}
-                                </h5>
-                              ) : (
-                                <h5 className="font-medium text-black dark:text-white">
-                                  {caseItem.description}
-                                </h5>
-                              )}
-                            </div>
-                          </td>
-
-                          <td className="px-4 py-5">
-                            <p className="uppercase text-black dark:text-white">
-                              {caseItem.case[0]?.casetype}
-                            </p>
-                          </td>
-                          <td className="px-4 py-5">
-                            <p className="text-black dark:text-white">
-                              {new Date(caseItem.createdAt).toLocaleString()}
-                            </p>
-                          </td>
-                          <td className="px-4 py-5">
-                            <p className="inline-flex rounded-full bg-warning bg-opacity-10 px-3 py-1 text-sm font-medium text-warning">
-                              {caseItem.progress[0]?.status}
-                            </p>
-                          </td>
-                          <td className="px-4 py-5">
-                            <div className="flex items-center space-x-3.5">
-                              <button
-                                className="hover:text-primary"
-                                onClick={() => togglemodal(index, caseItem)}
+                  updatedCases.map((caseItem, index) => (
+                    <React.Fragment key={caseItem._id}>
+                      <tr>
+                        <td className="px-4 py-5">
+                          <h5 className="font-medium text-black dark:text-white">
+                            {caseItem.case[0]?.caseId}
+                          </h5>
+                        </td>
+                        <td className="px-4 py-5">
+                          <div
+                            className="flex cursor-pointer items-center"
+                            onClick={() => toggleDescription(index, caseItem)}
+                          >
+                            {(user && user.role === "admin") ||
+                            user.role === "police" ? (
+                              <h5 className="font-medium text-black dark:text-white">
+                                {caseItem.ownerName}
+                              </h5>
+                            ) : caseItem.case[0]?.casetype === "fir" ? (
+                              <video
+                                width="200"
+                                height="500"
+                                className="rounded-lg"
+                                controls
                               >
-                                <AiFillEye />
-                              </button>
-                              {(user.role === "admin" ||
-                                user.role === "police") && (
+                                <source
+                                  src={`${imgURL}${caseItem.video}`}
+                                  type="video/mp4"
+                                />
+                              </video>
+                            ) : caseItem.description.length > 30 ? (
+                              <h5
+                                onClick={() => togglemodal(index, caseItem)}
+                                className="font-medium text-black dark:text-white"
+                              >
+                                {`${caseItem.description.substring(0, 30)}...`}
+                              </h5>
+                            ) : (
+                              <h5 className="font-medium text-black dark:text-white">
+                                {caseItem.description}
+                              </h5>
+                            )}
+                          </div>
+                        </td>
+
+                        <td className="px-4 py-5">
+                          <p className="uppercase text-black dark:text-white">
+                            {caseItem.case[0]?.casetype}
+                          </p>
+                        </td>
+                        <td className="px-4 py-5">
+                          <p className="text-black dark:text-white">
+                            {new Date(caseItem.createdAt).toLocaleString()}
+                          </p>
+                        </td>
+                        <td className="px-4 py-5">
+                          <p className="inline-flex rounded-full bg-warning bg-opacity-10 px-3 py-1 text-sm font-medium text-warning">
+                            {caseItem.progress[0]?.status}
+                          </p>
+                        </td>
+                        <td className="px-4 py-5">
+                          <div className="flex items-center space-x-3.5">
+                            <button
+                              className="hover:text-primary"
+                              onClick={() => togglemodal(index, caseItem)}
+                            >
+                              <AiFillEye />
+                            </button>
+                            {user &&
+                              (user.role === "police" ||
+                                user.role === "admin") && (
                                 <button
                                   className="hover:text-meta-1"
                                   onClick={() =>
@@ -228,14 +227,14 @@ const Cases = () => {
                                   <AiFillDelete />
                                 </button>
                               )}
-                              <button className="hover:text-primary">
-                                <AiOutlineDownload />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      </React.Fragment>
-                    ))
+                            <button className="hover:text-primary">
+                              <AiOutlineDownload />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </React.Fragment>
+                  ))
                 ) : (
                   <tr>
                     <td colSpan="6" className="px-4 py-5 text-center">
