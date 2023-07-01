@@ -33,13 +33,12 @@ const Header = (props) => {
           </Link> */}
         </div>
 
-        <div className="hidden rounded-full bg-bodydark1 px-4 py-2 dark:bg-bodydark2 dark:text-white sm:block">
+        <div className="hidden rounded-full bg-bodydark1 px-4 py-2 dark:bg-body dark:text-white sm:block">
           <form>
             <div className="relative ">
               <button className="absolute left-0 top-1/2 -translate-y-1/2">
                 <BsSearch />
               </button>
-
               <input
                 type="text"
                 placeholder="Type to search..."
