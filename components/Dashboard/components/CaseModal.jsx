@@ -42,7 +42,7 @@ const CaseModal = ({ caseData, onClose, userData }) => {
     }
   };
   return (
-    <div className="fixed left-64 inset-0 flex items-center justify-center">
+    <div className="fixed inset-0 left-64 flex items-center justify-center">
       <div className="   mx-auto md:max-w-5xl">
         <div className=" rounded-md border border-stroke bg-white px-10 py-6 shadow-lg dark:border-strokedark dark:bg-boxdark">
           <div className="flex items-center justify-between">
@@ -66,13 +66,16 @@ const CaseModal = ({ caseData, onClose, userData }) => {
           </div>
 
           <p className="mt-8 text-justify">{caseData.description}</p>
-          <Image
-            height={200}
-            width={200}
-            src={caseData.image ? `${imgURL}${caseData.image}` : UserImage}
-            alt=""
-            className=" "
-          />
+          {caseData.image && (
+            <Image
+              height={200}
+              width={200}
+              src={`${imgURL}${caseData.image}`}
+              alt=""
+              className=" "
+            />
+          )}
+
           {showMessage && (
             <div
               className={`fixed z-50 rounded-md py-2 ${

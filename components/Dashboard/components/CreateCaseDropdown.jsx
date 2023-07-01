@@ -10,12 +10,7 @@ const CreateCaseDropdown = () => {
     setShowDropdown(true);
   };
 
-  const handleMouseLeave = () => {
-    setShowDropdown(false);
-  };
-
   const handleOptionSelect = (option) => {
-    // Handle the selected option here
     console.log(`Selected option: ${option}`);
   };
 
@@ -28,10 +23,9 @@ const CreateCaseDropdown = () => {
   return (
     <div className="relative">
       <div
-        className="flex cursor-pointer items-center gap-2 md:text-xl font-bold"
+        className="flex cursor-pointer items-center gap-2 font-bold md:text-xl"
         onMouseEnter={handleMouseEnter}
       >
-        <div>{/* Add any additional elements here */}</div>
         <MdAddBox /> Add New Case
       </div>
 
@@ -42,23 +36,32 @@ const CreateCaseDropdown = () => {
           onMouseLeave={handleDropdownMouseLeave}
         >
           <ul className="py-2">
-            <Link href='/complaint'
-              className="hover:bg-gray-100 cursor-pointer px-4 py-2"
-              onClick={() => handleOptionSelect("Complaint")}
-            >
-              Complaint
-            </Link>
-            <li
-              className="hover:bg-gray-100 cursor-pointer px-4 py-2"
-              onClick={() => handleOptionSelect("Crime Report")}
-            >
-              Crime Report
+            <li>
+              <Link
+                href="/complaint"
+                className="hover:bg-gray-100 cursor-pointer px-4 py-2"
+                onClick={() => handleOptionSelect("Complaint")}
+              >
+                Complaint
+              </Link>
             </li>
-            <li
-              className="hover:bg-gray-100 cursor-pointer px-4 py-2"
-              onClick={() => handleOptionSelect("FIR")}
-            >
-              FIR
+            <li>
+              <Link
+                href="/crime-report"
+                className="hover:bg-gray-100 cursor-pointer px-4 py-2"
+                onClick={() => handleOptionSelect("Complaint")}
+              >
+                Crime Report
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/first-information-report"
+                className="hover:bg-gray-100 cursor-pointer px-4 py-2"
+                onClick={() => handleOptionSelect("Complaint")}
+              >
+                FIR
+              </Link>
             </li>
           </ul>
         </div>
