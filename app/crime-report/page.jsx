@@ -226,7 +226,7 @@ const CrimeReport = () => {
                           <input
                             type="file"
                             accept="image/*"
-                            name="foodImage"
+                            name="complaintImage"
                             id="image"
                             onChange={handleImageChange}
                             className="h-0 w-0"

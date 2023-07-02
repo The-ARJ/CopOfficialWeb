@@ -2,7 +2,6 @@ import axios from "axios";
 
 const baseURL = "http://localhost:3005/users";
 export const imgURL = "http://localhost:3005";
-// export const imgURL = "https://res.cloudinary.com/dy8ua6x3r/image/complaint_images/su2i6hsgyf5b5ejuy3tz";
 export const complaintURL = "http://localhost:3005/complaints";
 export const crimeReportURL = "http://localhost:3005/crime-report";
 export const firURL = "http://localhost:3005/fir";
@@ -10,6 +9,7 @@ export const recommendURL = "http://localhost:3005/recommendation";
 export const notificationURL = "http://localhost:3005/notifications";
 export const feedbackURL = "http://localhost:3005/feedbacks";
 export const contactURL = "http://localhost:3005/contacts";
+export const criminalURL = "http://localhost:3005/criminals";
 
 const login = (credentials) => {
   return axios.post(`${baseURL}/login/user`, credentials);
@@ -70,6 +70,50 @@ const updateComplaint = (complaintId, updatedComplaintDetails, token) => {
   });
 };
 
+// Criminal Services
+const getAllCriminals = () => {
+  return axios.get(`${criminalURL}`, {
+    headers: {
+      Authorization: `bearer ${window.localStorage.getItem("token")}`,
+    },
+  });
+};
+
+const getCriminalById = (id, token) => {
+  return axios.get(`${criminalURL}/${id}`, {
+    headers: {
+      Authorization: `bearer ${window.localStorage.getItem("token")}`,
+    },
+  });
+};
+
+const deleteCriminalById = (id, token) => {
+  const config = {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  };
+  return axios.delete(`${criminalURL}/${id}`, config);
+};
+
+const createCriminal = (formData) => {
+  const config = {
+    headers: {
+      Authorization: `bearer ${window.localStorage.getItem("token")}`,
+      "Content-Type": "multipart/form-data",
+    },
+  };
+  return axios.post(`${criminalURL}/`, formData, config);
+};
+
+// UpdateCriminal service
+const updateCriminal = (criminalId, updatedCriminalDetails, token) => {
+  return axios.put(`${criminalURL}/${criminalId}`, updatedCriminalDetails, {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  });
+};
 
 //Crime Report Services
 
@@ -345,7 +389,12 @@ const auth = {
   createFIR,
   deleteFIRById,
   getFIRById,
-  updateFIR
+  updateFIR,
+  getAllCriminals,
+  getCriminalById,
+  deleteCriminalById,
+  createCriminal,
+  updateCriminal
 };
 
 export default auth;

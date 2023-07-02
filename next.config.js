@@ -1,11 +1,14 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+  // output: "export",
+  reactStrictMode: true,
+  basePath: "",
+  assetPrefix: "",
   images: {
     domains: ['localhost'],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -143,32 +143,30 @@ const Users = () => {
                   </div>
                 </div>
 
-                <div className="px-6 py-4">
-                  <div className="flex items-center justify-end gap-2">
-                    <select
-                      className=" mb-2 mr-2 inline-block  rounded-full bg-white px-3 py-1 text-sm font-semibold text-boxdark dark:bg-boxdark dark:text-white"
-                      value={user.role}
-                      onChange={(event) =>
-                        handleRoleChange(user._id, event.target.value)
-                      }
-                    >
-                      <option value="user">User</option>
-                      <option value="police">Police</option>
-                      <option value="admin">Admin</option>
-                    </select>
-                    <button className="rounded px-4 py-2 font-bold text-boxdark   hover:bg-meta-3 dark:text-white">
-                      <MdPhone />
-                    </button>
-                    <button className="rounded px-4 py-2 font-bold text-boxdark   hover:bg-meta-5  dark:text-white">
-                      <MdMail />
-                    </button>
-                    <button
-                      className="rounded px-4 py-2 font-bold text-boxdark   hover:bg-meta-1  dark:text-white"
-                      onClick={() => handleDelete(user._id)}
-                    >
-                      <MdDelete />
-                    </button>
-                  </div>
+                <div className="flex items-center justify-between px-2 py-4">
+                  <select
+                    className=" mb-2 mr-2 inline-block  rounded-full bg-white px-3 py-1 text-sm font-semibold text-boxdark dark:bg-boxdark dark:text-white"
+                    value={user.role}
+                    onChange={(event) =>
+                      handleRoleChange(user._id, event.target.value)
+                    }
+                  >
+                    <option value="user">User</option>
+                    <option value="police">Police</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                  <button className="rounded px-4 py-2 font-bold text-boxdark   hover:bg-meta-3 dark:text-white">
+                    <MdPhone />
+                  </button>
+                  <button className="rounded px-4 py-2 font-bold text-boxdark   hover:bg-meta-5  dark:text-white">
+                    <MdMail />
+                  </button>
+                  <button
+                    className="rounded px-4 py-2 font-bold text-boxdark   hover:bg-meta-1  dark:text-white"
+                    onClick={() => handleDelete(user._id)}
+                  >
+                    <MdDelete />
+                  </button>
                 </div>
               </div>
             ))

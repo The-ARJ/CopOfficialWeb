@@ -112,7 +112,6 @@ const Cases = () => {
       });
   }, [cases]);
 
-  console.log(updatedCases);
   return (
     <DefaultLayout>
       <>
